@@ -1,5 +1,6 @@
 import './App.css';
-import Container from './pages/Container';
+import EventDetailPage from './pages/events/eventdetail/EventDetailPage';
+import EventListPage from './pages/events/eventlist/EventListPage';
 // import EventList from './pages/eventList';
 // import FilterComponent from './pages/filterComponent';
 // import Main from './services/events/events';
@@ -11,7 +12,8 @@ export default function App() {
   {/* <h1>App</h1> */}
   {/* <Main /> */}
   {/* <EventList /> */}
-  <Container/>
+  {/* <EventListPage/> */}
+  <EventDetailPage />
   </>
   );
 }

@@ -1,19 +1,21 @@
 import { useEffect, useState } from "react";
-import { getFunction } from "../services/events/events";
+import { getFunction } from "../../../services/events/events";
 
 const filterEvents = (events, searchObj) => {
-  //     console.log(list);
-  //     console.log(searchObj);
-  //   if(!list.Genres){
-  //     return true;
-  //   }else{
-  //    list.Genres.includes(searchObj.Genres)
-  //   }
+
   console.log("so", searchObj);
-  return events;
+  return events.filter((event) => {
+    if (
+      !searchObj ||
+      ((!searchObj.genre || event.Genres.includes(searchObj.genre)) &&
+        (!searchObj.language || event.Language.includes(searchObj.language)))
+    )
+      return true;
+    return false;
+  });
 };
 
-const Events = ({ searchObj }) => {
+const EventList = ({ searchObj, listUpdatedCount }) => {
   const [events, setEvents] = useState(null);
   const [filteredEvents, setFilteredEvents] = useState(null);
 
@@ -22,14 +24,12 @@ const Events = ({ searchObj }) => {
       setEvents(events);
     });
   }, []);
-  console.log("list", events);
 
   useEffect(() => {
-    console.log("render");
-    let filteredEvents = searchObj && events && filterEvents(events, searchObj);
-    // console.log(searchObj);
-    console.log("fl", filteredEvents);
-    setFilteredEvents(filteredEvents);
+    if (searchObj && events) {
+      let filteredEvents = filterEvents(events, searchObj);
+      setFilteredEvents(filteredEvents);
+    }
   }, [events, searchObj]);
 
   return (
@@ -45,11 +45,12 @@ const Events = ({ searchObj }) => {
 const Event = ({ event, index }) => {
   return (
     <>
-      <h1>{event.eventName}</h1>
       <img src={event.eventPoster} alt="Event poster" />
+      <h1>{event.eventName}</h1>
       <h3>{event.Genre}</h3>
     </>
   );
 };
 
-export default Events;
+export default EventList;
+

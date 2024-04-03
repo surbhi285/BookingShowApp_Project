@@ -1,0 +1,29 @@
+[{
+    "artistId": 1,
+    "artistImage":"assets/artists/nayab.jpg",
+    "artistName": "Nayab Medha" 
+},
+{
+    "artistId": 2,
+    "artistImage":"assets/artists/anubhavSingh.avif",
+    "artistName": "Anubhav Singh"   
+},
+{
+    "artistId":3,
+    "artistImage":"assets/artists/diljit.avif",
+    "artistName": "Diljit Dosanjh"
+},
+{
+    "artistId":4,
+    "artistImage":"assets/artists/harsh.avif",
+    "artistName":"Harsh Gujral"
+},
+{
+"artistId":5,
+"artistImage":"assets/artists/chainsmoker.avif",
+"artistName":"The Chainsmoker"
+},{
+    "artistId":6,
+    "artistImage":"assets/artists/nizamiBandhu.avif"
+}
+]

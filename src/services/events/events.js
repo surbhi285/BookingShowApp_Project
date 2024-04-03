@@ -35,10 +35,13 @@ export default function Main(){
     addFunction({"eventId":11, "eventName":"Surbhi Concert"})
     .then((updatedEventsDetail)=>{
         console.log(updatedEventsDetail);
-    }).then((removedEvents)=>{
-        removeFunction(eventsDetail, 1, "eventId")
-        console.log(removedEvents);
-    })
+        removeFunction( 1, "eventId").then((remove)=>{
+            console.log(remove);
+        })
+        updateFunction({"eventId":2, "eventName":"Riddhi"}, "eventId").then((update)=>{
+            console.log(update)
+        })
+    })   
 }
 
 
