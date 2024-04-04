@@ -10,6 +10,13 @@ export function getFunction(){
     })
 }
 
+// export function getDetailFunction(eventId, pk){
+//     return new Promise((resolve)=>{
+//         eventsDetail = crudOperation.getDetail(eventsDetail, eventId, pk);
+//          resolve(eventsDetail)
+//     })
+// }
+
 export function addFunction(newEvent){   
     return new Promise((resolve) =>{
         eventsDetail = crudOperation.add(eventsDetail, newEvent);
@@ -31,18 +38,19 @@ export function updateFunction(updatedEvent, pk){
     });
 }
 
-export default function Main(){
-    addFunction({"eventId":11, "eventName":"Surbhi Concert"})
-    .then((updatedEventsDetail)=>{
-        console.log(updatedEventsDetail);
-        removeFunction( 1, "eventId").then((remove)=>{
-            console.log(remove);
-        })
-        updateFunction({"eventId":2, "eventName":"Riddhi"}, "eventId").then((update)=>{
-            console.log(update)
-        })
-    })   
-}
+// export default function Main(){
+//     // addFunction({"eventId":11, "eventName":"Surbhi Concert"})
+//     // .then((updatedEventsDetail)=>{
+//     //     console.log(updatedEventsDetail);
+//     //     removeFunction( 1, "eventId").then((remove)=>{
+//     //         console.log(remove);
+//     //     })
+//     //     updateFunction({"eventId":2, "eventName":"Riddhi"}, "eventId").then((update)=>{
+//     //         console.log(update)
+//     //     })
+//         getDetailFunction(4, "eventId").then((detail)=>{console.log(detail)})
+//     // })   
+// }
 
 
 

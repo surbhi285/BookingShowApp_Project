@@ -43,7 +43,7 @@
     "Language" : ["English"],
     "Duration" : "3hrs",
     "Genres" : ["Jazz"],
-    "venue" : "Gymkhana Club: Sec 29, Gurugram",
+    "venue" : "Bailey's Diner: Gurugram",
     "CensorBoardRating" : "8yrs+",
     "Date": ["04/20/2024"],
     "Price": 750
@@ -55,7 +55,7 @@
     "Language" : ["English","Hindi","Punjabi"],
     "Duration" : "6hrs",
     "Genres" : ["Bollywood","EDM", "International"],
-    "venue" : "Mahalaxmi Race Course: Mumbai",
+    "venue" : "SohoClub: Delhi",
     "CensorBoardRating" : "3yrs+",
     "Date": ["03/30/2024", "03/31/2024", "04/01/2024"],
     "Price": 1099

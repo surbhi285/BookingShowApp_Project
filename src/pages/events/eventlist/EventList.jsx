@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { getFunction } from "../../../services/events/events";
+import { Card, Flex} from 'antd';
 
 const filterEvents = (events, searchObj) => {
 
-  console.log("so", searchObj);
   return events.filter((event) => {
     if (
       !searchObj ||
@@ -15,7 +15,7 @@ const filterEvents = (events, searchObj) => {
   });
 };
 
-const EventList = ({ searchObj, listUpdatedCount }) => {
+const EventList = ({ searchObj, listUpdatedCount, next, setEvent}) => {
   const [events, setEvents] = useState(null);
   const [filteredEvents, setFilteredEvents] = useState(null);
 
@@ -36,19 +36,30 @@ const EventList = ({ searchObj, listUpdatedCount }) => {
     <>
       {filteredEvents &&
         filteredEvents.map((event, index) => (
-          <Event key={event.eventId} event={event} index={index} />
+          <Event key={event.eventId} event={event} index={index} next={next} setEvent={setEvent}/>
         ))}
     </>
   );
 };
 
-const Event = ({ event, index }) => {
+const Event = ({ event, index, next, setEvent }) => {
+  const handleClick = ()=>{
+    setEvent(event);
+    next();
+  }
+
   return (
-    <>
-      <img src={event.eventPoster} alt="Event poster" />
-      <h1>{event.eventName}</h1>
-      <h3>{event.Genre}</h3>
-    </>
+    <Flex wrap="wrap" gap="small" style={{maxWidth:"25%", marginLeft:"5%"}}>
+    <div  onClick={handleClick}>
+    <Card
+    hoverable
+    style={{ width: 240, marginBottom: 50}}
+    cover={<img alt={event.eventName} src={event.eventPoster} />}
+    >
+    <Card.Meta title={event.eventName} description={event.venue} />
+    </Card>
+    </div>
+    </Flex>
   );
 };
 
