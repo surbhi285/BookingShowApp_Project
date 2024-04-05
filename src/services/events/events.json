@@ -9,7 +9,8 @@
         "venue" : "Gaur City Mall: Noida",
         "CensorBoardRating" : "16yrs+",
         "Date": ["04/28/2024", "04/29/2024","04/30/2024"],
-        "Price" : 499
+        "Price" : 499,
+        "eventImage": "assets/eventDetail/rajkumari.avif"
 },
 {
     "eventId" : 2,
@@ -21,7 +22,8 @@
     "venue" : "TalKatora Stadium: Delhi",
     "CensorBoardRating" : "18yrs+",
     "Date": ["04/23/2024"],
-    "Price": 599
+    "Price": 599,
+    "eventImage" : "assets/eventDetail/anubhavSingh.avif"
 }, 
 {
     "eventId" : 3,
@@ -33,7 +35,8 @@
     "venue" : "The Gully Cafe: Gurugram",
     "CensorBoardRating" : "16yrs+",
     "Date": ["04/12/2024"],
-    "Price": 999
+    "Price": 999,
+    "eventImage": "assets/eventDetail/harsh.avif"
 
 },
 {
@@ -46,7 +49,8 @@
     "venue" : "Bailey's Diner: Gurugram",
     "CensorBoardRating" : "8yrs+",
     "Date": ["04/20/2024"],
-    "Price": 750
+    "Price": 750,
+    "eventImage":"assets/eventDetail/worldJaz.avif"
 },
 {
     "eventId" : 5,
@@ -58,7 +62,8 @@
     "venue" : "SohoClub: Delhi",
     "CensorBoardRating" : "3yrs+",
     "Date": ["03/30/2024", "03/31/2024", "04/01/2024"],
-    "Price": 1099
+    "Price": 1099,
+    "eventImage": "assets/eventDetail/joy.avif"
 }, 
 {
     "eventId" : 6,
@@ -70,7 +75,8 @@
     "venue" : "Punjabi Bagh Club: Delhi",
     "CensorBoardRating" : "16yrs+",
     "Date": ["04/10/2024"],
-    "Price": 999
+    "Price": 999,
+    "eventImage": "assets/eventDetail/mainShayar.avif"
 }, 
 {
     "eventId" : 7,
@@ -82,7 +88,8 @@
     "venue" : "Mall of Faridabad",
     "CensorBoardRating" : "16yrs+",
     "Date": ["04/25/2024","04/26/2024","04/27/2024"],
-    "Price": 899
+    "Price": 899,
+    "eventImage": "assets/eventDetail/sagar.avif"
 
 },
 {
@@ -95,7 +102,8 @@
     "venue" : "MicDrop 2.0: Delhi",
     "CensorBoardRating" : "18yrs+",
     "Date":["04/18/2024", "04/19/2024","04/20/2024"],
-    "Price": 499
+    "Price": 499,
+    "eventImage": "assets/eventDetail/lemon.avif"
 },
 {
     "eventId" : 9,
@@ -107,7 +115,8 @@
     "venue" : "kamani Auditorium: Delhi",
     "CensorBoardRating" : "3yrs+",
     "Date": ["04/20/2024","04/21/2024","04/22/2024"],
-    "Price": 599
+    "Price": 599,
+    "eventImage": "assets/eventDetail/nizami.avif"
 },
 {
     "eventId" : 10,
@@ -119,7 +128,8 @@
     "venue" : "Sirifort Auditorium: Delhi",
     "CensorBoardRating" : "18yrs+",
     "Date": "04/20/2024",
-    "Price": 300
+    "Price": 300,
+    "eventImage": "assets/eventDetail/youthSpeaker.avif"
 }, 
 {
     "eventId" : 11,
@@ -131,7 +141,8 @@
     "venue" : "Dogra Hall: Delhi",
     "CensorBoardRating" : "3yrs+",
     "Date": "04/20/2024",
-    "Price": 300  
+    "Price": 300,
+    "eventImage": "assets/eventDetail/pottery.avif"
 }
 ]
 

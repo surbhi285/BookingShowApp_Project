@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getFunction } from "../../../services/events/events";
 import { Card, Flex} from 'antd';
+import {EllipsisOutlined} from '@ant-design/icons'
 
 const filterEvents = (events, searchObj) => {
 
@@ -49,17 +50,21 @@ const Event = ({ event, index, next, setEvent }) => {
   }
 
   return (
-    <Flex wrap="wrap" gap="small" style={{maxWidth:"25%", marginLeft:"5%"}}>
+    <div>
+    <Flex wrap="wrap" gap="middle" style={{maxWidth:"25%", marginLeft:"5%"}}>
     <div  onClick={handleClick}>
     <Card
     hoverable
     style={{ width: 240, marginBottom: 50}}
     cover={<img alt={event.eventName} src={event.eventPoster} />}
+    actions={[<EllipsisOutlined key="ellipsis"/>]}
     >
     <Card.Meta title={event.eventName} description={event.venue} />
+    
     </Card>
     </div>
     </Flex>
+    </div>
   );
 };
 

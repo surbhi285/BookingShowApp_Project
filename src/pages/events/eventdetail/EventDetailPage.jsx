@@ -11,8 +11,6 @@ export default function EventDetailPage({event}) {
     //     })
     //  },[event])
     //  console.log(eventDetail)
-   
-
   return (
     <>
    <EventDetail eventDetail={event} />
