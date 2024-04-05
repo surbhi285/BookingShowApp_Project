@@ -1,38 +1,42 @@
-.App {
-  text-align: center;
+.header{
+  background-color:white;
+  margin-left:10%; 
+  margin-bottom: 2%
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.languageButton,
+.locationButton
+{
+color: rgb(220, 53, 75);
+border-radius: 15px;
+}
+.backButton{
+  margin-top:5px; 
+  margin-left:10px; 
+  color:rgb(220, 53, 75)
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.eventTitle{
+  margin:0; 
+  padding:0;
+  color:black;
+}
+.eventDetails{
+  color: black; 
+  font-size:20px;
+  margin-bottom: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.bookButton{
+  background-color: rgb(220, 53, 75);
+  width: 15%;
+  height: 50px;
+  margin-top: 0;
+  margin-left: 40%;
+  font-size: 20px;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.eventDate{
+  font-size: 18px;
+  color: black
 }

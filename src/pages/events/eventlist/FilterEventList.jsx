@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Flex, Typography, Layout, Collapse } from 'antd';
+import { Button, Flex, Typography, Layout, Collapse, Space } from 'antd';
 
 const genres = ["Comedy", "EDM", "Workshop", "Sufi", "Business", "Education", "Poetry", "Jazz", "Bollywood", "Indian Classical", "Technology"];
 const languages = ["Hindi", "English", "Punjabi"];
@@ -11,11 +11,14 @@ export default function FilterEventList({ searchObj, setSearchObj }) {
       <Typography.Title style={{marginLeft:"5%"}}>Events in Delhi-NCR</Typography.Title>
       
       <Layout style={{backgroundColor:"white"}}>
-        <Layout.Header style={{backgroundColor:"white", marginLeft:"10%", marginBottom: "2%"}}>
+        <Layout.Header className="header">
           <Flex wrap="wrap" gap="small">
         {genres.map((genre, index) => (
           <Button
-            style={{color:"rgb(220, 53, 75)", borderRadius: "15px"}}
+            style={{
+              color: searchObj.genre === genre ? "white": "rgb(220, 53, 75)", 
+              backgroundColor: searchObj.genre === genre ? "rgb(220, 53, 75)" : "white",
+              borderRadius: "15px"}}
             key={index}
             onClick={() => 
               {
@@ -32,18 +35,16 @@ export default function FilterEventList({ searchObj, setSearchObj }) {
            </Flex>
         </Layout.Header> 
         </Layout> 
-        
-       
       <div>
-      <Typography.Title level={3} >Filters</Typography.Title>
-        <Layout style={{ backgroundColor:"white"}}>
+      <Typography.Title level={3} style={{marginLeft:"20%"}} >Filters</Typography.Title>
+        <Layout style={{backgroundColor:"white", marginLeft:"20px"}}>
         <Layout.Sider style={{backgroundColor:"white"}}> 
         <Collapse style={{marginLeft: "10%"}}>
         <Collapse.Panel header="Languages">
-        <Flex wrap="wrap" gap="small">
+        <Space wrap>
         {languages.map((language, index) => (
           <Button
-            style={{color:"rgb(220, 53, 75)", borderRadius: "15px"}}
+            className="languageButton"
             key={index}
             onClick={() => 
               {
@@ -57,15 +58,15 @@ export default function FilterEventList({ searchObj, setSearchObj }) {
             {language}
             </Button>
         ))}
-           </Flex>
+           </Space>
         </Collapse.Panel>
         </Collapse>
         <Collapse style={{marginLeft: "10%", marginTop:"10%"}}>
         <Collapse.Panel header="Location">
-        <Flex wrap="wrap" gap="small">
+        <Space wrap>
         {location.map((location, index) => (
           <Button
-            style={{color:"rgb(220, 53, 75)", borderRadius: "15px"}}
+            className="locationButton"
             key={index}
             onClick={() => 
               {
@@ -79,21 +80,10 @@ export default function FilterEventList({ searchObj, setSearchObj }) {
             {location}
             </Button>
         ))}
-           </Flex>
+           </Space>
         </Collapse.Panel>
         </Collapse>
-
-        <Collapse style={{marginLeft: "10%", marginTop:"10%"}}>
-        <Collapse.Panel header="Price">
-        <Flex wrap="wrap" gap="small">
-        {location.map((location, index) => (
-          <Button>
-            </Button>
-        ))}
-           </Flex>
-        </Collapse.Panel>
-        </Collapse>
-         </Layout.Sider>
+         </Layout.Sider> 
          </Layout>
       </div>
       

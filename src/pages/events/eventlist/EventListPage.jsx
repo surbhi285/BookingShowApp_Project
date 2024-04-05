@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import FilterEventList from "./FilterEventList";
 import EventList from './EventList';
-import { Layout, Flex } from 'antd';
+import { Row, Col} from 'antd';
 
 export default function EventListPage({next, setEvent}) {
   const [searchObj, setSearchObj] = useState({}); 
@@ -9,10 +9,12 @@ export default function EventListPage({next, setEvent}) {
 
   return (
     <div>
-      <Flex  gap="small" wrap="wrap">
-        <FilterEventList searchObj={searchObj} setSearchObj={setSearchObj}/>        
+      <Row justify="space-between" gutter={[16, 16]}>
+        <FilterEventList searchObj={searchObj} setSearchObj={setSearchObj}/>
+        <Col span={18}>      
         <EventList searchObj={searchObj} next={next} setEvent={setEvent}/>
-      </Flex>
+        </Col>
+      </Row>
    
     </div>
   )

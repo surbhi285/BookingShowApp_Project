@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getFunction } from "../../../services/events/events";
-import { Card, Flex} from 'antd';
+import { Card, Row, Col} from 'antd';
 import {EllipsisOutlined} from '@ant-design/icons'
 
 const filterEvents = (events, searchObj) => {
@@ -35,10 +35,14 @@ const EventList = ({ searchObj, listUpdatedCount, next, setEvent}) => {
 
   return (
     <>
+    <Row justify="space-between" >
       {filteredEvents &&
         filteredEvents.map((event, index) => (
+          <Col key={index} span={7}>
           <Event key={event.eventId} event={event} index={index} next={next} setEvent={setEvent}/>
+           </Col>
         ))}
+        </Row>
     </>
   );
 };
@@ -48,23 +52,17 @@ const Event = ({ event, index, next, setEvent }) => {
     setEvent(event);
     next();
   }
-
   return (
-    <div>
-    <Flex wrap="wrap" gap="middle" style={{maxWidth:"25%", marginLeft:"5%"}}>
-    <div  onClick={handleClick}>
     <Card
+    key={index}
+    onClick={handleClick}
     hoverable
-    style={{ width: 240, marginBottom: 50}}
+    style={{ width: 240, marginBottom: 50,}}
     cover={<img alt={event.eventName} src={event.eventPoster} />}
     actions={[<EllipsisOutlined key="ellipsis"/>]}
     >
     <Card.Meta title={event.eventName} description={event.venue} />
-    
     </Card>
-    </div>
-    </Flex>
-    </div>
   );
 };
 

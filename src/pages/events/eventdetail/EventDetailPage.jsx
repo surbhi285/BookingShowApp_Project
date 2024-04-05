@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { getDetailFunction } from '../../../services/events/events';
 import EventDetail from './EventDetail';
 
-export default function EventDetailPage({event}) {
+export default function EventDetailPage({event, back}) {
 //    const[eventDetail, setEventDetail] = useState(null);
 
     //  useEffect(()=>{
@@ -13,7 +13,7 @@ export default function EventDetailPage({event}) {
     //  console.log(eventDetail)
   return (
     <>
-   <EventDetail eventDetail={event} />
+   <EventDetail eventDetail={event} back={back}/>
     </>
   )
 }
