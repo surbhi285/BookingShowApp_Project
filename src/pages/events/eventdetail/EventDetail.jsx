@@ -25,15 +25,13 @@ console.log(eventDetail);
         <Typography.Title className='eventTitle'>{eventDetail.eventName}</Typography.Title>
         <Flex gap="large">
         <p className='eventDetails'>
-        {eventDetail.genres.join(', ')} | {eventDetail.language.join(', ')} | {eventDetail.CensorBoardRating}
-         | {eventDetail.duration} 
+        {eventDetail.genres.join(', ')} | {eventDetail.language.join(', ')} | {eventDetail.censorBoardRating} | {eventDetail.duration} 
         </p>
         <Button type='primary' className='bookButton'>
           BOOK</Button>
           </Flex>
           <Divider />
-        <p className='eventDate'>{eventDetail.date[0]} 
-        <span style={{fontSize:"20px"}}>-</span> {eventDetail.date[eventDetail.date.length-1]} {eventDetail.eventTime} onwards
+        <p className='eventDate'>{eventDetail.date.length<=1 ? eventDetail.date[0]:  `${eventDetail.date[0]} - ${eventDetail.date[eventDetail.date.length - 1]}`} {eventDetail.eventTime} onwards
         <EnvironmentFilled style={{color: "#fdd835", marginLeft:"10%"}}/> {eventDetail.venue}
         </p>
 

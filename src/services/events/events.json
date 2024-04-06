@@ -133,7 +133,7 @@
     "eventPoster" : "assets/events/youthforum.jpg",
     "language" : ["English","Hindi"],
     "duration" : "9hrs",
-    "genres" : ["MasterClass", "Education", "Technology", "StoryTelling"],
+    "genres" : [ "Education", "Technology"],
     "venue" : "Sirifort Auditorium: Delhi",
     "censorBoardRating" : "18yrs+",
     "date": ["20 April 2024"],

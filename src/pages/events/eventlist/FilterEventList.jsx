@@ -1,11 +1,13 @@
 import React from "react";
 import { Button, Flex, Typography, Layout, Collapse, Space } from 'antd';
+import { PlusOutlined } from '@ant-design/icons'
 
 const genres = ["Comedy", "EDM", "Workshop", "Sufi", "Business", "Education", "Poetry", "Jazz", "Bollywood", "Indian Classical", "Technology"];
 const languages = ["Hindi", "English", "Punjabi"];
 const location = ["Noida", "Delhi", "Gurugram"];
 
-export default function FilterEventList({ searchObj, setSearchObj }) {
+export default function FilterEventList({ searchObj, setSearchObj, showModal }) {
+  
   return (
     <>
       <Typography.Title style={{marginLeft:"5%"}}>Events in Delhi-NCR</Typography.Title>
@@ -35,16 +37,20 @@ export default function FilterEventList({ searchObj, setSearchObj }) {
            </Flex>
         </Layout.Header> 
         </Layout> 
+        <Button className="addButton" onClick={showModal}><PlusOutlined />ADD EVENT</Button>
       <div>
       <Typography.Title level={3} style={{marginLeft:"20%"}} >Filters</Typography.Title>
-        <Layout style={{backgroundColor:"white", marginLeft:"20px"}}>
+        <Layout style={{backgroundColor:"white", marginLeft:"10px"}}>
         <Layout.Sider style={{backgroundColor:"white"}}> 
-        <Collapse style={{marginLeft: "10%"}}>
+        <Collapse style={{marginLeft: "5%"}}>
         <Collapse.Panel header="Languages">
         <Space wrap>
         {languages.map((language, index) => (
           <Button
-            className="languageButton"
+          style={{
+            color: searchObj.language === language ? "white": "rgb(220, 53, 75)", 
+            backgroundColor: searchObj.language === language ? "rgb(220, 53, 75)" : "white",
+            borderRadius: "15px"}}
             key={index}
             onClick={() => 
               {
@@ -61,12 +67,15 @@ export default function FilterEventList({ searchObj, setSearchObj }) {
            </Space>
         </Collapse.Panel>
         </Collapse>
-        <Collapse style={{marginLeft: "10%", marginTop:"10%"}}>
+        <Collapse style={{marginLeft: "5%", marginTop:"10%"}}>
         <Collapse.Panel header="Location">
         <Space wrap>
         {location.map((location, index) => (
           <Button
-            className="locationButton"
+          style={{
+            color: searchObj.location === location ? "white": "rgb(220, 53, 75)", 
+            backgroundColor: searchObj.location === location ? "rgb(220, 53, 75)" : "white",
+            borderRadius: "15px"}}
             key={index}
             onClick={() => 
               {

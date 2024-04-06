@@ -1,15 +1,15 @@
+body{
+margin-left: 0;
+margin-right: 0;
+}
+
 .header{
   background-color:white;
   margin-left:10%; 
   margin-bottom: 2%
 }
 
-.languageButton,
-.locationButton
-{
-color: rgb(220, 53, 75);
-border-radius: 15px;
-}
+
 .backButton{
   margin-top:5px; 
   margin-left:10px; 
@@ -29,14 +29,24 @@ border-radius: 15px;
 
 .bookButton{
   background-color: rgb(220, 53, 75);
-  width: 15%;
+  width: 12%;
   height: 50px;
   margin-top: 0;
-  margin-left: 40%;
-  font-size: 20px;
+  margin-left: 30%;
+  font-size: 16px;
 }
 
 .eventDate{
   font-size: 18px;
   color: black
+}
+
+.addButton{
+  background-color: rgb(220, 53, 75);
+  color: white;
+  margin-top: 5%;
+  margin-right: 5%;
+  padding: 0;
+  width: 8%;
+  
 }

@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
 import { getFunction } from "../../../services/events/events";
 import { Card, Row, Col} from 'antd';
-import {EllipsisOutlined} from '@ant-design/icons'
+import { EditOutlined, DeleteOutlined} from '@ant-design/icons'
 
 const filterEvents = (events, searchObj) => {
 
   return events.filter((event) => {
     if (
       !searchObj ||
-      ((!searchObj.genre || event.Genres.includes(searchObj.genre)) &&
-        (!searchObj.language || event.Language.includes(searchObj.language)))
+      ((!searchObj.genre || event.genres.includes(searchObj.genre)) &&
+        (!searchObj.language || event.language.includes(searchObj.language)) &&
+        (!searchObj.location || event.venue.includes(searchObj.location)))
     )
       return true;
     return false;
@@ -39,7 +40,7 @@ const EventList = ({ searchObj, listUpdatedCount, next, setEvent}) => {
       {filteredEvents &&
         filteredEvents.map((event, index) => (
           <Col key={index} span={7}>
-          <Event key={event.eventId} event={event} index={index} next={next} setEvent={setEvent}/>
+          <Event key={event.eventId} event={event} index={index} next={next} setEvent={setEvent} />
            </Col>
         ))}
         </Row>
@@ -59,7 +60,10 @@ const Event = ({ event, index, next, setEvent }) => {
     hoverable
     style={{ width: 240, marginBottom: 50,}}
     cover={<img alt={event.eventName} src={event.eventPoster} />}
-    actions={[<EllipsisOutlined key="ellipsis"/>]}
+    actions={[
+      <EditOutlined key="edit" />,
+      <DeleteOutlined key="delete" />,
+    ]}
     >
     <Card.Meta title={event.eventName} description={event.venue} />
     </Card>
@@ -67,4 +71,7 @@ const Event = ({ event, index, next, setEvent }) => {
 };
 
 export default EventList;
+
+
+
 

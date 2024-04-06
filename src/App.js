@@ -1,5 +1,6 @@
 import './App.css';
 import EventWrapper from './pages/events/EventWrapper';
+import CreateUpdate from './pages/events/eventlist/CreateUpdate';
 // import EventDetailPage from './pages/events/eventdetail/EventDetailPage';
 // import EventListPage from './pages/events/eventlist/EventListPage';
 // import EventList from './pages/eventList';
@@ -16,7 +17,8 @@ export default function App() {
   {/* <EventListPage/> */}
   {/* <EventDetailPage /> */}
   <EventWrapper />
- 
+  {/* <CreateUpdate />
+  */}
   </>
   );
 }
