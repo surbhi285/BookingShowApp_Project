@@ -1,17 +1,21 @@
 import React from 'react'
 import { Button, Card, Divider, Typography, Flex } from 'antd';
-import {ArrowLeftOutlined, EnvironmentFilled } from '@ant-design/icons'
+import {ArrowLeftOutlined, EnvironmentFilled, EditOutlined } from '@ant-design/icons'
 // import {NavLink} from 'react-router-dom';
 
 export default function EventDetail({eventDetail, back}) {
 console.log(eventDetail);
   return (
     <>
+    <Flex style={{justifyContent:"space-between", marginBottom:"10px"}}>
     <Button className="backButton"
     onClick={back}>
-    <ArrowLeftOutlined style={{color:"rgb(220, 53, 75)"}}/>
+    <ArrowLeftOutlined/>
     Back
     </Button>
+    <Button style={{color:"rgb(220, 53, 75)", border:"none", fontSize:"16px"}}>
+    <EditOutlined />Add Review</Button>
+    </Flex>
      <Card
     hoverable
     style={{

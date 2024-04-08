@@ -5,7 +5,8 @@ import Show from './pages/booking/bookingPage/Show';
 // import EventListPage from './pages/events/eventlist/EventListPage';
 // import EventList from './pages/eventList';
 // import FilterComponent from './pages/filterComponent';
-// import Main from './services/events/events';
+
+
 
 export default function App() {
  
@@ -17,7 +18,10 @@ export default function App() {
   {/* <EventList /> */}
   {/* <EventListPage/> */}
   {/* <EventDetailPage /> */}
-  <EventWrapper /> 
+  {/* <EventWrapper />  */}
+  <Show />
+
+ 
   </>
   );
 }

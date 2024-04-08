@@ -41,7 +41,7 @@ export default function FilterEventList({ searchObj, setSearchObj }) {
               {
                 if(searchObj.genre === genre){
                   setSearchObj({...searchObj, genre: null})
-              }else{
+              }else {
                 setSearchObj({...searchObj, genre});
               }
             }}

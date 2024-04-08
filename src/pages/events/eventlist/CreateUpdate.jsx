@@ -4,7 +4,7 @@ import { Modal, Input, Form, Select, DatePicker } from 'antd';
 export default function CreateUpdate({ isModalOpen, handleOk, handleCancel }) {
   return (
       <>
-    <Modal title="Event Detail" visible={isModalOpen} onClick={handleOk} onCancel={handleCancel}>
+    <Modal title="Event Detail" open={isModalOpen} onClick={handleOk} onCancel={handleCancel}>
     <Form
     name="basic"
     labelCol={{span: 8,}}
