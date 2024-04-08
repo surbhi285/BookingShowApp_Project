@@ -1,29 +1,11 @@
-import {useState} from 'react'
 import { Modal, Input, Form, Select, DatePicker } from 'antd';
-import EventListPage from './EventListPage';
-
-export default function CreateUpdate() {
-    const [isModalOpen, setIsModalOpen] = useState(false);
 
 
-    const showModal = () => {
-        console.log("is it called")
-        setIsModalOpen(true);
-      };
-    
-      const handleOk = () => {
-        setIsModalOpen(false);
-      };
-    
-      const handleCancel = () => {
-        setIsModalOpen(false);
-      };
-
-      return (
-        <>
-        <EventListPage showModal={showModal} />
-        <Modal title="Event Detail" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-        <Form
+export default function CreateUpdate({ isModalOpen, handleOk, handleCancel }) {
+  return (
+      <>
+    <Modal title="Event Detail" visible={isModalOpen} onClick={handleOk} onCancel={handleCancel}>
+    <Form
     name="basic"
     labelCol={{span: 8,}}
     wrapperCol={{span: 16,}}

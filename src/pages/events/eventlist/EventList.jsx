@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { getFunction } from "../../../services/events/events";
-import { Card, Row, Col} from 'antd';
-import { EditOutlined, DeleteOutlined} from '@ant-design/icons'
+import { Card, Row, Col, Typography, Modal} from 'antd';
+import { EditOutlined, DeleteOutlined, ExclamationCircleFilled} from '@ant-design/icons'
+
 
 const filterEvents = (events, searchObj) => {
 
@@ -18,41 +19,60 @@ const filterEvents = (events, searchObj) => {
 };
 
 const EventList = ({ searchObj, listUpdatedCount, next, setEvent}) => {
-  const [events, setEvents] = useState(null);
+  const [eventsList, setEventsList] = useState(null);
   const [filteredEvents, setFilteredEvents] = useState(null);
+
+  const showDeleteConfirm = () => {
+    Modal.confirm({
+      title: 'Are you sure delete this task?',
+      icon: <ExclamationCircleFilled />,
+      okText: 'Yes',
+      cancelText: 'No',
+      onOk() {
+        console.log('OK');
+      },
+      onCancel() {
+        console.log('Cancel');
+      },
+    });
+  };
 
   useEffect(() => {
     getFunction().then((events) => {
-      setEvents(events);
+      setEventsList(events);
     });
   }, []);
 
   useEffect(() => {
-    if (searchObj && events) {
-      let filteredEvents = filterEvents(events, searchObj);
+    if (searchObj && eventsList) {
+      let filteredEvents = filterEvents(eventsList, searchObj);
       setFilteredEvents(filteredEvents);
     }
-  }, [events, searchObj]);
+  }, [eventsList, searchObj]);
 
   return (
     <>
-    <Row justify="space-between" >
-      {filteredEvents &&
+    <Row justify="space-between">
+      {filteredEvents && filteredEvents.length > 0 ? (
         filteredEvents.map((event, index) => (
           <Col key={index} span={7}>
-          <Event key={event.eventId} event={event} index={index} next={next} setEvent={setEvent} />
-           </Col>
-        ))}
-        </Row>
-    </>
-  );
+            <Event key={event.eventId} event={event} index={index} next={next} setEvent={setEvent} showDeleteConfirm={showDeleteConfirm}/>
+          </Col>
+        ))
+      ) : (
+        <Typography.Title style={{color:"rgb(220, 53, 75)"}}>Sorry ! No event found</Typography.Title>
+      )}
+    </Row>
+  </>
+);
 };
 
-const Event = ({ event, index, next, setEvent }) => {
+const Event = ({ event, index, next, setEvent, showDeleteConfirm }) => {
   const handleClick = ()=>{
     setEvent(event);
     next();
-  }
+    }
+
   return (
     <Card
     key={index}
@@ -62,7 +82,7 @@ const Event = ({ event, index, next, setEvent }) => {
     cover={<img alt={event.eventName} src={event.eventPoster} />}
     actions={[
       <EditOutlined key="edit" />,
-      <DeleteOutlined key="delete" />,
+      <DeleteOutlined key="delete" onClick={showDeleteConfirm} />,
     ]}
     >
     <Card.Meta title={event.eventName} description={event.venue} />

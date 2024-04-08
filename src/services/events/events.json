@@ -9,7 +9,7 @@
         "venue" : "Gaur City Mall: Noida",
         "censorBoardRating" : "16yrs+",
         "date": ["28 April 2024", "29 April 2024","30 April 2024"],
-        "eventTime": "04:00 PM",
+        "eventTime": ["04:00 PM"],
         "price" : 499,
         "eventImage": "assets/eventDetail/rajkumari.avif"
 },
