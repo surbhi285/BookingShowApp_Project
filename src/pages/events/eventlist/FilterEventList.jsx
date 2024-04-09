@@ -4,7 +4,7 @@ import { PlusOutlined } from '@ant-design/icons'
 import CreateUpdate from "./CreateUpdate";
 
 const genres = ["Comedy", "EDM", "Workshop", "Sufi", "Business", "Education", "Poetry", "Jazz", "Bollywood", "Indian Classical", "Technology"];
-const languages = ["Hindi", "English", "Punjabi"];
+const languages = ["Hindi", "English", "Punjabi", "Urdu"];
 const location = ["Noida", "Delhi", "Gurugram"];
 
 export default function FilterEventList({ searchObj, setSearchObj }) {

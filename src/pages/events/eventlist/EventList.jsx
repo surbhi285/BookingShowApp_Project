@@ -13,14 +13,15 @@ const filterEvents = (events, searchObj) => {
         (!searchObj.language || event.language.includes(searchObj.language)) &&
         (!searchObj.location || event.venue.includes(searchObj.location)))
     )
-      return true;
+    return true;
     return false;
   });
 };
 
-const EventList = ({ searchObj, listUpdatedCount, next, setEvent}) => {
+const EventList = ({ searchObj, next, setEvent}) => {
   const [eventsList, setEventsList] = useState(null);
   const [filteredEvents, setFilteredEvents] = useState(null);
+  console.log(searchObj)
 
   const showDeleteConfirm = () => {
     Modal.confirm({
