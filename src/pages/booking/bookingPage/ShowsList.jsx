@@ -3,24 +3,29 @@ import React, { useEffect, useState } from 'react';
 import {EnvironmentFilled,  InfoCircleFilled,  HeartOutlined} from '@ant-design/icons';
 
 const filterShows = (shows, showSearch)=>{
-    // console.log(shows);
+    console.log("show", showSearch);
+
+    console.log(shows)
 
     return shows.filter((show)=>{
         if(
             !showSearch ||
-            ((!showSearch.language || show.language.includes(showSearch.language)) &&
-            (!showSearch.location || show.location.includes(showSearch.location)))
+            ((!showSearch.language || showSearch.language.every(i => show.language.includes(i))) &&
+            (!showSearch.location || showSearch.location.every(i => show.venue.includes(i))))
         )
         return true;
-        return false;
+        return false;   
     })
 }
-const ShowList = ({showSearch, shows, event})=>{
+const ShowsList = ({showSearch, shows, events})=>{
 const [filteredShow, setFilteredShow] = useState(null);
+console.log(events)
 
 useEffect(()=>{
     if(showSearch && shows){
+        // console.log("shows and set", showSearch, shows);
         let filteredEvents = filterShows(shows, showSearch);
+        console.log("filtered",filteredEvents);
         setFilteredShow(filteredEvents);
     }
 }, [shows, showSearch])
@@ -30,7 +35,7 @@ return(
     <>
     {filteredShow && filteredShow.length>0 ? (
         filteredShow.map((show, index)=>(
-    <Show key={show.showId} show={show} event={event} index={show.showId} />
+    <Show key={show.showId} show={show} events={events} index={show.showId} />
     ))
     ):(
         <div>No event found</div>
@@ -39,9 +44,9 @@ return(
 )
 }
 
-const Show=({show, event, index }) =>{
+const Show=({show, events, index }) =>{
     const findEventName=(categoryId)=>{
-        const eventList = event.find((event)=>event.eventId===categoryId);
+        const eventList = events.find((event)=>event.eventId===categoryId);
         return  eventList.eventName;
     };
     // console.log(findEventName(1))
@@ -67,4 +72,4 @@ const Show=({show, event, index }) =>{
         </>
     )
 }
-export default ShowList;
+export default ShowsList;
