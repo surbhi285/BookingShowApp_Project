@@ -41,12 +41,11 @@ console.log(eventDetail);
         <Typography className='eventDate'>{eventDetail.date.length<=1 ? eventDetail.date[0]:  `${eventDetail.date[0]} - ${eventDetail.date[eventDetail.date.length - 1]}`} {eventDetail.eventTime} onwards
         <EnvironmentFilled style={{color: "#fdd835", marginLeft:"10%"}}/> {eventDetail.venue}
         </Typography>
-
       </div>
     ]}
     />
   </Card>
-    </>
+   </>
     
   )
 }

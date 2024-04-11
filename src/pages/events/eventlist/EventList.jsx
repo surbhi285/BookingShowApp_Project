@@ -3,7 +3,7 @@ import { getFunction } from "../../../services/events/events";
 import { Card, Row, Col, Typography, Modal} from 'antd';
 import { EditOutlined, DeleteOutlined, ExclamationCircleFilled} from '@ant-design/icons'
 
-
+ 
 const filterEvents = (events, searchObj) => {
 
   return events.filter((event) => {
@@ -17,6 +17,7 @@ const filterEvents = (events, searchObj) => {
     return false;
   });
 };
+
 
 const EventList = ({ searchObj, next, setEvent}) => {
   const [eventsList, setEventsList] = useState(null);
@@ -55,9 +56,9 @@ const EventList = ({ searchObj, next, setEvent}) => {
     <>
     <Row justify="space-between">
       {filteredEvents && filteredEvents.length > 0 ? (
-        filteredEvents.map((event, index) => (
-          <Col key={index} span={7}>
-            <Event key={event.eventId} event={event} index={index} next={next} setEvent={setEvent} showDeleteConfirm={showDeleteConfirm}/>
+        filteredEvents.map((event) => (
+          <Col key={event.eventId} span={7}>
+            <Event key={event.eventId} event={event} index={event.eventId} next={next} setEvent={setEvent} showDeleteConfirm={showDeleteConfirm}/>
           </Col>
         ))
       ) : (
@@ -68,15 +69,16 @@ const EventList = ({ searchObj, next, setEvent}) => {
 );
 };
 
-const Event = ({ event, index, next, setEvent, showDeleteConfirm }) => {
+const Event = ({ event, next, setEvent, showDeleteConfirm }) => {
   const handleClick = ()=>{
     setEvent(event);
     next();
     }
 
   return (
+    <>
     <Card
-    key={index}
+    key={event.eventId}
     onClick={handleClick}
     hoverable
     style={{ width: 240, marginBottom: 50,}}
@@ -88,6 +90,8 @@ const Event = ({ event, index, next, setEvent, showDeleteConfirm }) => {
     >
     <Card.Meta title={event.eventName} description={event.venue} />
     </Card>
+    
+    </>
   );
 };
 

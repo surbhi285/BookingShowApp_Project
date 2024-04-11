@@ -3,7 +3,7 @@ import FilterShowsList from "./FilterShowsList";
 import ShowsList from "./ShowsList";
 import { getFunction } from "../../../services/events/events";
 import { getShowFunction } from "../../../services/shows/shows";
-import ShowDetail from "./ShowDetail";
+// import ShowDetail from "./ShowDetail";
 import { useParams } from "react-router-dom";
 
 export default function ShowsPage() {
@@ -17,22 +17,20 @@ export default function ShowsPage() {
   useEffect(() => {
     Promise.all([getFunction(), getShowFunction()]).then((data) => {
       setEvents(data[0]);
-      setShows(data[1]);
+      if (id) {
+        let show = data[1]?.filter((show) => {
+          return show.showId === parseInt(id);
+        });
+        setShows(show);
+      } else setShows(data[1]);
     });
   }, []);
-  //  console.log(shows);
-  console.log(events);
-
-  if (id) {
-    let event = events.find((item) => item.eventId === id);
-    setEvents(event)
-  }
 
   return (
     <>
-      {/* {id ? (
+      {id ? (
         <ShowsList showSearch={showSearch} events={events} shows={shows} />
-      ) : ( */}
+      ) : (
         <>
           <FilterShowsList
             showSearch={showSearch}
@@ -40,7 +38,7 @@ export default function ShowsPage() {
           />
           <ShowsList showSearch={showSearch} events={events} shows={shows} />
         </>
-    
+      )}
     </>
   );
 }

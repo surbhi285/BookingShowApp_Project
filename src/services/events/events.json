@@ -40,7 +40,6 @@
     "eventTime": "07:00 PM",
     "price": 999,
     "eventImage": "assets/eventDetail/harsh.avif"
-
 },
 {
     "eventId" : 4,
@@ -54,7 +53,7 @@
     "date": ["20 April 2024"],
     "eventTime": "02:00 PM",
     "price": 750,
-    "eventImage":"assets/eventDetail/worldJaz.avif"
+    "eventImage":"assets/eventDetail/worldJaz.avif"   
 },
 {
     "eventId" : 5,
@@ -97,7 +96,6 @@
     "eventTime": "07:00 PM",
     "price": 899,
     "eventImage": "assets/eventDetail/sagar.avif"
-
 },
 {
     "eventId" : 8,

@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css';
 import ShowsPage from './pages/booking/bookingPage/ShowsPage';
 import EventWrapper from './pages/events/EventWrapper';
-import ShowDetail from "./pages/booking/bookingPage/ShowDetail";
+// import ShowDetail from "./pages/booking/bookingPage/ShowDetail";
 
 
 // import EventDetailPage from './pages/events/eventdetail/EventDetailPage';
@@ -27,7 +27,7 @@ export default function App() {
 
   <Route exact path="/" element={<EventWrapper />}/>
   <Route path = "/booking/event" element={<ShowsPage/>}/>
-  <Route path="/booking/event/:id" element={<ShowDetail />}/> 
+  <Route path="/booking/event/:id" element={<ShowsPage />}/>
   </Routes>
   </Router> 
   
