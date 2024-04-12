@@ -24,7 +24,7 @@ const filterShows = (shows, showSearch) => {
     return false;
   });
 };
-const ShowsList = ({ showSearch, shows, events }) => {
+const ShowsList = ({ showSearch, shows, events, showModal }) => {
   const [filteredShow, setFilteredShow] = useState(null);
 
   useEffect(() => {
@@ -44,6 +44,7 @@ const ShowsList = ({ showSearch, shows, events }) => {
             show={show}
             events={events}
             index={show.showId}
+            showModal={showModal}
           />
         ))
       ) : (
@@ -53,7 +54,7 @@ const ShowsList = ({ showSearch, shows, events }) => {
   );
 };
 
-const Show = ({ show, events, index }) => {
+const Show = ({ show, events, showModal }) => {
   const { id } = useParams();
 
   const findEvent = (categoryId) => {
@@ -65,7 +66,9 @@ const Show = ({ show, events, index }) => {
     <>
       {id && (
         <>
-          <Typography.Title style={{marginLeft:"50px", marginTop:"50px"}}>{event.eventName}</Typography.Title>
+          <Typography.Title style={{ marginLeft: "50px", marginTop: "50px" }}>
+            {event.eventName}
+          </Typography.Title>
           <Button
             style={{
               borderRadius: "50%",
@@ -113,7 +116,10 @@ const Show = ({ show, events, index }) => {
           <HeartOutlined style={{ marginRight: "10px", color: "grey" }} />
           {event.eventName}
         </Typography.Title>
-        <Button style={{ marginTop: "30px", color: "#4ABD5D", height: "40px" }}>
+        <Button
+          onClick={showModal}
+          style={{ marginTop: "30px", color: "#4ABD5D", height: "40px" }}
+        >
           {show.timing}
         </Button>
       </Flex>

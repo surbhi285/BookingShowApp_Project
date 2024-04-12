@@ -6,7 +6,7 @@ import { getShowFunction } from "../../../services/shows/shows";
 // import ShowDetail from "./ShowDetail";
 import { useParams } from "react-router-dom";
 
-export default function ShowsPage() {
+export default function ShowsPage({showModal, payload, initFormData, updatedCount}) {
   const { id } = useParams();
   console.log(id);
 
@@ -36,7 +36,7 @@ export default function ShowsPage() {
             showSearch={showSearch}
             setShowSearch={setShowSearch}
           />
-          <ShowsList showSearch={showSearch} events={events} shows={shows} />
+          <ShowsList showSearch={showSearch} events={events} shows={shows} showModal={showModal}/>
         </>
       )}
     </>

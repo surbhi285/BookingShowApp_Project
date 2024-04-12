@@ -1,7 +1,7 @@
 import {useState} from "react";
 import { Button, Flex, Typography, Layout, Collapse, Space } from 'antd';
 import { PlusOutlined } from '@ant-design/icons'
-import CreateUpdate from "./CreateUpdate";
+import CreateUpdate from "./createupdate/CreateUpdate";
 
 const genres = ["Comedy", "EDM", "Workshop", "Sufi", "Business", "Education", "Poetry", "Jazz", "Bollywood", "Indian Classical", "Technology"];
 const languages = ["Hindi", "English", "Punjabi", "Urdu"];

@@ -25,7 +25,7 @@ export default function App() {
   {/* <EventListPage/> */}
   {/* <EventDetailPage /> */}
 
-  <Route exact path="/" element={<EventWrapper />}/>
+  <Route path="/" element={<EventWrapper />}/>
   <Route path = "/booking/event" element={<ShowsPage/>}/>
   <Route path="/booking/event/:id" element={<ShowsPage />}/>
   </Routes>
