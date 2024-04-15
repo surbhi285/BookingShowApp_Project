@@ -19,18 +19,19 @@ const filterShows = (shows, showSearch) => {
           showSearch.location.every((location) =>
             show.venue.includes(location)
           )))
-    )
+    ) 
       return true;
     return false;
   });
 };
-const ShowsList = ({ showSearch, shows, events, showModal }) => {
+const ShowsList = ({ showSearch, shows, events, showModal, payload,  initFormData}) => {
   const [filteredShow, setFilteredShow] = useState(null);
+
 
   useEffect(() => {
     if (showSearch && shows) {
       let filteredEvents = filterShows(shows, showSearch);
-      console.log("filtered", filteredEvents);
+      // console.log("filtered", filteredEvents);
       setFilteredShow(filteredEvents);
     }
   }, [shows, showSearch]);
@@ -45,6 +46,9 @@ const ShowsList = ({ showSearch, shows, events, showModal }) => {
             events={events}
             index={show.showId}
             showModal={showModal}
+            payload={payload}
+            initFormData={initFormData}
+           
           />
         ))
       ) : (
@@ -54,13 +58,21 @@ const ShowsList = ({ showSearch, shows, events, showModal }) => {
   );
 };
 
-const Show = ({ show, events, showModal }) => {
+const Show = ({ show, events, showModal, payload, initFormData }) => {
   const { id } = useParams();
-
+  
   const findEvent = (categoryId) => {
     return events.find((event) => event.eventId === categoryId);
   };
   const event = findEvent(show.categoryId);
+
+  const initCreateUpdate=()=>{
+    payload.current.operation = "ADD";
+    payload.current.data = {};
+    initFormData();
+  }
+  // console.log(payload.current.data)
+
 
   return (
     <>
@@ -117,10 +129,15 @@ const Show = ({ show, events, showModal }) => {
           {event.eventName}
         </Typography.Title>
         <Button
-          onClick={showModal}
-          style={{ marginTop: "30px", color: "#4ABD5D", height: "40px" }}
+          style={{ marginTop: "30px", color: "#4ABD5D", height: "40px", marginRight:"25%" }}
         >
           {show.timing}
+        </Button>
+        <Button
+          onClick={()=>{initCreateUpdate();console.log("clicked it"); showModal()}}
+          style={{ marginTop: "30px", color: "white", height: "40px", backgroundColor:"rgb(220, 53, 75)" }}
+        >
+          BOOK
         </Button>
       </Flex>
       <Typography>

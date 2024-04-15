@@ -3,8 +3,16 @@ import { Button, Card, Divider, Typography, Flex } from 'antd';
 import {ArrowLeftOutlined, EnvironmentFilled, EditOutlined } from '@ant-design/icons'
 import {Link} from 'react-router-dom';
 
-export default function EventDetail({eventDetail, back}) {
+export default function EventDetail({eventDetail, review, back}) {
 console.log(eventDetail);
+console.log(review)
+
+const findEvent = (categoryId) =>{
+  return review.find((event)=>event.eventId===categoryId)
+};
+const reviewList = findEvent(eventDetail.eventId);
+
+
   return (
     <>
     <Flex style={{justifyContent:"space-between", marginBottom:"10px"}}>
@@ -45,6 +53,7 @@ console.log(eventDetail);
     ]}
     />
   </Card>
+  <Typography>{reviewList.review}</Typography>
    </>
     
   )
