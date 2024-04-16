@@ -14,10 +14,12 @@ export default function Review() {
           setReview(data[1]);
        })
     }, []);
+    console.log()
 
     const findEvent = (categoryId)=>{
-        return events.find((event)=> event.eventId === categoryId)
-    }   
+        return events?.find((event)=> event.eventId === categoryId)
+    }  
+    console.log(findEvent(1)) 
   return (
     <div>Review</div>
   )

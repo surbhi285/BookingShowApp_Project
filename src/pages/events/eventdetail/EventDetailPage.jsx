@@ -16,7 +16,7 @@ export default function EventDetailPage({event, back}) {
     const [review, setReview] = useState(null);
 
     useEffect(()=>{
-      getReviewFunction.then((data)=>{
+      getReviewFunction().then((data)=>{
         setReview(data);
       })
     }, [])
