@@ -1,6 +1,36 @@
-import { Modal, Input, Form, Select, DatePicker } from "antd";
+import { Modal, Input, Form, Select, DatePicker, Button } from "antd";
+import { addFunction, updateFunction } from "../../../services/events/events";
 
-export default function CreateUpdate({ isModalOpen, handleOk, handleCancel }) {
+export default function CreateUpdate({
+  isModalOpen,
+  handleOk,
+  handleCancel,
+  payload,
+  form,
+  setUpdatedCount,
+  setEvent,
+}) {
+  const submitForm = (values) => {
+    payload.current.data = { ...payload.current.data, ...values };
+    console.log(payload.current.data, "create")
+    if (payload.current.operation === "ADD") {
+      payload.current.data.eventId = Math.random();
+      addFunction(payload.current.data).then((data) => {
+        setEvent(data);
+        setUpdatedCount((count) => count + 1);
+        handleCancel();
+      });
+    } else {
+      updateFunction(payload.current.data, "eventId").then((data) => {
+        console.log(data)
+        setEvent(data);
+        setUpdatedCount((count) => count + 1);
+        handleCancel();
+       console.log(data);
+      });
+    }
+  };
+
   return (
     <>
       <Modal
@@ -8,6 +38,7 @@ export default function CreateUpdate({ isModalOpen, handleOk, handleCancel }) {
         open={isModalOpen}
         onClick={handleOk}
         onCancel={handleCancel}
+        footer={null}
       >
         <Form
           name="basic"
@@ -15,10 +46,13 @@ export default function CreateUpdate({ isModalOpen, handleOk, handleCancel }) {
           wrapperCol={{ span: 16 }}
           style={{ maxWidth: 600 }}
           initialValues={{ remember: true }}
+          onFinish={submitForm}
+          form={form}
+          autoComplete="off"
         >
           <Form.Item
             label="Event Id"
-            name="Event Id"
+            name="eventId"
             rules={[{ required: true, message: "Please input your event Id!" }]}
           >
             <Input />
@@ -26,7 +60,7 @@ export default function CreateUpdate({ isModalOpen, handleOk, handleCancel }) {
 
           <Form.Item
             label="Event Name"
-            name="Event Name"
+            name="eventName"
             rules={[
               { required: true, message: "Please input your EventName!" },
             ]}
@@ -35,10 +69,9 @@ export default function CreateUpdate({ isModalOpen, handleOk, handleCancel }) {
           </Form.Item>
 
           <Form.Item
-            name="Event Poster URL"
+            name="eventPoster"
             label="Event Poster URL"
             rules={[
-              { required: true },
               { type: "url", warningOnly: true },
               { type: "string", min: 6 },
             ]}
@@ -46,7 +79,7 @@ export default function CreateUpdate({ isModalOpen, handleOk, handleCancel }) {
             <Input />
           </Form.Item>
 
-          <Form.Item label="Language">
+          {/* <Form.Item label="Language" name="language">
             <Select>
               <Select.Option value="Hindi">Hindi</Select.Option>
               <Select.Option value="English">English</Select.Option>
@@ -55,8 +88,8 @@ export default function CreateUpdate({ isModalOpen, handleOk, handleCancel }) {
           </Form.Item>
 
           <Form.Item
-            name="Event Duration"
             label="Event Duration"
+            name="duration"
             rules={[
               { required: true, message: "Please input your Event Duration!" },
             ]}
@@ -65,7 +98,7 @@ export default function CreateUpdate({ isModalOpen, handleOk, handleCancel }) {
           </Form.Item>
 
           <Form.Item
-            name="Event Genre"
+            name="genres"
             label="Event Genre"
             rules={[
               { required: true, message: "Please input your Event Genre!" },
@@ -75,7 +108,7 @@ export default function CreateUpdate({ isModalOpen, handleOk, handleCancel }) {
           </Form.Item>
 
           <Form.Item
-            name="Event Venue"
+            name="venue"
             label="Event Venue"
             rules={[
               { required: true, message: "Please input your Event Venue!" },
@@ -85,7 +118,7 @@ export default function CreateUpdate({ isModalOpen, handleOk, handleCancel }) {
           </Form.Item>
 
           <Form.Item
-            name="Censor Board Rating"
+            name="censorBoardRating"
             label="Censor Board Rating"
             rules={[
               {
@@ -102,7 +135,7 @@ export default function CreateUpdate({ isModalOpen, handleOk, handleCancel }) {
           </Form.Item>
 
           <Form.Item
-            name="Event Time"
+            name="eventTime"
             label="Event Time"
             rules={[
               { required: true, message: "Please input your Event Time!" },
@@ -112,11 +145,20 @@ export default function CreateUpdate({ isModalOpen, handleOk, handleCancel }) {
           </Form.Item>
 
           <Form.Item
-            name="Price"
+            name="price"
             label="Price"
             rules={[{ required: true, message: "Please input your Price!" }]}
           >
             <Input />
+          </Form.Item> */}
+          <Form.Item>
+            <Button type="primary" onClick={handleCancel}>
+              Cancel
+            </Button>
+            <Button type="primary" htmlType="submit">
+            {payload.current.operation === "ADD" ? "Add Event" : "Update Event"}
+          </Button>
+
           </Form.Item>
         </Form>
       </Modal>

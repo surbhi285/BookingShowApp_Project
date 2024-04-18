@@ -134,7 +134,7 @@ const Show = ({ show, events, showModal, payload, initFormData }) => {
           {show.timing}
         </Button>
         <Button
-          onClick={()=>{initCreateUpdate();console.log("clicked it"); showModal()}}
+          onClick={()=>{initCreateUpdate(); showModal()}}
           style={{ marginTop: "30px", color: "white", height: "40px", backgroundColor:"rgb(220, 53, 75)" }}
         >
           BOOK

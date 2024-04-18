@@ -1,7 +1,5 @@
-import {useState} from "react";
 import { Button, Flex, Typography, Layout, Collapse, Space } from 'antd';
-import { PlusOutlined } from '@ant-design/icons'
-import CreateUpdate from "./createupdate/CreateUpdate";
+
 
 const genres = ["Comedy", "EDM", "Workshop", "Sufi", "Business", "Education", "Poetry", "Jazz", "Bollywood", "Indian Classical", "Technology"];
 const languages = ["Hindi", "English", "Punjabi", "Urdu"];
@@ -9,22 +7,10 @@ const location = ["Noida", "Delhi", "Gurugram"];
 
 export default function FilterEventList({ searchObj, setSearchObj }) {
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const showModal = () => {
-      setIsModalOpen(true);
-  };
-  const handleOk=()=>{
-    setIsModalOpen(false);
-  }
-  const handleCancel = () => {
-      setIsModalOpen(false);
-  };
 
   
   return (
     <>
-    <CreateUpdate isModalOpen={isModalOpen} handleOk={handleOk} handleCancel={handleCancel} />
       <Typography.Title style={{marginLeft:"5%"}}>Events in Delhi-NCR</Typography.Title>
       
       <Layout style={{backgroundColor:"white"}}>
@@ -52,7 +38,6 @@ export default function FilterEventList({ searchObj, setSearchObj }) {
            </Flex>
         </Layout.Header> 
         </Layout> 
-        <Button className="addButton" onClick={showModal}><PlusOutlined />ADD EVENT</Button>
       <div>
       <Typography.Title level={3} style={{marginLeft:"20%"}} >Filters</Typography.Title>
         <Layout style={{backgroundColor:"white", marginLeft:"10px"}}>

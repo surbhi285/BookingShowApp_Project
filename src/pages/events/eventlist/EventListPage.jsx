@@ -1,18 +1,35 @@
-import {useState} from 'react';
+import { useState } from "react";
 import FilterEventList from "./FilterEventList";
-import EventList from './EventList';
-import { Row, Col} from 'antd';
+import EventList from "./EventList";
+import { Row, Col } from "antd";
 
-
-export default function EventListPage({next, setEvent, showModal}) {
-  const [searchObj, setSearchObj] = useState({}); 
+export default function EventListPage({
+  next,
+  setEvent,
+  showModal,
+  payload,
+  initFormData,
+  updatedCount,
+}) {
+  const [searchObj, setSearchObj] = useState({});
 
   return (
-      <Row justify="space-between" gutter={[14, 14]} style={{margin:0}}>
-        <FilterEventList searchObj={searchObj} setSearchObj={setSearchObj} showModal={showModal}/>
-        <Col span={18}>      
-        <EventList searchObj={searchObj} next={next} setEvent={setEvent} />
-        </Col>
-      </Row>
-  )
+    <Row justify="space-between" gutter={[14, 14]} style={{ margin: 0 }}>
+      <FilterEventList
+        searchObj={searchObj}
+        setSearchObj={setSearchObj}
+      />
+      <Col span={18}>
+        <EventList
+          searchObj={searchObj}
+          next={next}
+          setEvent={setEvent}
+          payload={payload}
+          initFormData={initFormData}
+          updatedCount={updatedCount}
+          showModal = {showModal}
+        />
+      </Col>
+    </Row>
+  );
 }

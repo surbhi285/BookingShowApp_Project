@@ -25,14 +25,18 @@ let crudOperation = {
     },
 
     update: function(list, obj, pk){
-       return list.map((item)=>{
-        if(item[pk]===obj[pk]){
+    let newArr =  list.map((item)=>{
+        console.log(item.eventId,obj.eventId,"surbhi")
+        if(item[pk]==obj[pk]){
+          console.log(item, "rashu")
             return obj; 
         }else{
             return item;
         }
 
         })
+        console.log("new",newArr);
+        return newArr;
     }
   
 }

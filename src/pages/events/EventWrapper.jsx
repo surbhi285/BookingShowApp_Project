@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import EventListPage from './eventlist/EventListPage';
+// import EventListPage from './eventlist/EventListPage';
 import EventDetailPage from './eventdetail/EventDetailPage';
-
-
+import FormRouter from './eventlist/FormRouter';
 
 export default function EventWrapper() {
     const Ui = {
@@ -17,7 +16,7 @@ export default function EventWrapper() {
 
     return (
         <>
-            {currentUi === Ui.EventListPage && <EventListPage next={() => setCurrentUi(Ui.EventDetailPage)} setEvent={setEvent} />}
+            {currentUi === Ui.EventListPage && <FormRouter next={() => setCurrentUi(Ui.EventDetailPage)} setEvent={setEvent} />}
             {currentUi === Ui.EventDetailPage && <EventDetailPage back={() => setCurrentUi(Ui.EventListPage)} event={event} />}
         </>
     )

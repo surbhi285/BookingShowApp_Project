@@ -33,7 +33,9 @@ export function removeFunction(eventId, pk){
 
 export function updateFunction(updatedEvent, pk){
     return new Promise((resolve)=>{
+        console.log("updatedEv",updatedEvent)
         eventsDetail = crudOperation.update(eventsDetail, updatedEvent, pk);
+        console.log("event",eventsDetail)
         resolve(eventsDetail);
     });
 }

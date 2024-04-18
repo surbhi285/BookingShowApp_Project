@@ -7,13 +7,14 @@ console.log(reviewDetail);
 export function getReviewFunction(){
     return new Promise((resolve)=>{
         reviewDetail = crudOperation.get(reviewDetail);
-        resolve(reviewDetail);
+        resolve(reviewDetail);  
     })
 }
 
 export function addReviewFunction(review){   
     return new Promise((resolve) =>{
-        reviewDetail = crudOperation.add(reviewDetail, Review);
+        reviewDetail = crudOperation.add(reviewDetail, review);
+        console.log("review",reviewDetail);
         resolve(reviewDetail);
     });
 }

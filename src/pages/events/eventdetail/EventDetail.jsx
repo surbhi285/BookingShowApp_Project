@@ -9,10 +9,8 @@ import {
 } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 
-export default function EventDetail({ eventDetail, review, back }) {
-  console.log(eventDetail);
-  console.log(review);
-
+export default function EventDetail({ eventDetail, review, back, payload, initFormData, updateCount, showModal, setReview }) {
+ 
   const findReview = () => {
     if (review) {
       return review?.filter (
@@ -22,7 +20,14 @@ export default function EventDetail({ eventDetail, review, back }) {
     return [];
   };
   const eventReviews = findReview();
-  // console.log(eventReviews);
+  
+  const initCreateUpdate=()=>{
+    payload.current.operation = "ADD";
+    payload.current.data = {};
+    setReview([...review, payload.current.operation])
+    initFormData();
+  }
+  console.log("payload",payload.current.data)
 
   return (
     <>
@@ -37,6 +42,7 @@ export default function EventDetail({ eventDetail, review, back }) {
             border: "none",
             fontSize: "16px",
           }}
+          onClick={()=>{initCreateUpdate(); showModal()}}
         >
           <EditOutlined />
           Add Review
