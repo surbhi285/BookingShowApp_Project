@@ -9,32 +9,45 @@ import { useParams } from "react-router-dom";
 
 const filterShows = (shows, showSearch) => {
   return shows.filter((show) => {
+    console.log("search", showSearch)
     if (
       !showSearch ||
-      ((!showSearch.language ||
-        showSearch.language.every((language) =>
+      ((!showSearch.language || (showSearch.language.length === 0) ||
+        showSearch.language.some((language) =>
           show.language.includes(language)
         )) &&
-        (!showSearch.location ||
-          showSearch.location.every((location) =>
+        (!showSearch.location || (showSearch.location.length === 0) ||
+          showSearch.location.some((location) =>
             show.venue.includes(location)
           )))
-    ) 
+    )
       return true;
     return false;
   });
 };
-const ShowsList = ({ showSearch, shows, events, showModal, payload,  initFormData}) => {
-  const [filteredShow, setFilteredShow] = useState(null);
 
+const ShowsList = ({ showSearch, shows, events, showModal, payload,  initFormData}) => {
+
+
+  const [filteredShow, setFilteredShow] = useState(null);
+ 
+  console.log("show checking",shows);
 
   useEffect(() => {
     if (showSearch && shows) {
       let filteredEvents = filterShows(shows, showSearch);
-      // console.log("filtered", filteredEvents);
+      console.log("filtered", filteredEvents);
       setFilteredShow(filteredEvents);
     }
   }, [shows, showSearch]);
+  useEffect(() => {
+    if (showSearch && shows) {
+      let filteredMovies = filterShows(shows, showSearch);
+      // console.log("filtered", filteredEvents);
+      setFilteredShow(filteredMovies);
+    }
+  }, [shows, showSearch]);
+
 
   return (
     <>
@@ -47,8 +60,8 @@ const ShowsList = ({ showSearch, shows, events, showModal, payload,  initFormDat
             index={show.showId}
             showModal={showModal}
             payload={payload}
-            initFormData={initFormData}
-           
+
+            initFormData={initFormData} 
           />
         ))
       ) : (
@@ -58,24 +71,31 @@ const ShowsList = ({ showSearch, shows, events, showModal, payload,  initFormDat
   );
 };
 
-const Show = ({ show, events, showModal, payload, initFormData }) => {
+const Show = ({ show, events, movies, showModal, payload, initFormData }) => {
   const { id } = useParams();
-  
+  console.log("id",id)
   const findEvent = (categoryId) => {
     return events.find((event) => event.eventId === categoryId);
   };
   const event = findEvent(show.categoryId);
 
-  const initCreateUpdate=()=>{
+  // const findMovie = (categoryId) => {
+  //   return movies.find((movie) => movie.movieId === categoryId);
+  // };
+  // const movie = findMovie(show.categoryId);
+
+  const initCreateUpdate = () => {
     payload.current.operation = "ADD";
     payload.current.data = {};
     initFormData();
   }
-  // console.log(payload.current.data)
+  console.log(payload.current.data, "payload")
 
 
   return (
     <>
+    {event && (
+      <>
       {id && (
         <>
           <Typography.Title style={{ marginLeft: "50px", marginTop: "50px" }}>
@@ -126,16 +146,16 @@ const Show = ({ show, events, showModal, payload, initFormData }) => {
       <Flex>
         <Typography.Title level={4} style={{ width: "50%", marginLeft: "3%" }}>
           <HeartOutlined style={{ marginRight: "10px", color: "grey" }} />
-          {event.eventName}
+          {event?.eventName}
         </Typography.Title>
         <Button
-          style={{ marginTop: "30px", color: "#4ABD5D", height: "40px", marginRight:"25%" }}
+          style={{ marginTop: "30px", color: "#4ABD5D", height: "40px", marginRight: "25%" }}
         >
           {show.timing}
         </Button>
         <Button
-          onClick={()=>{initCreateUpdate(); showModal()}}
-          style={{ marginTop: "30px", color: "white", height: "40px", backgroundColor:"rgb(220, 53, 75)" }}
+          onClick={() => { initCreateUpdate(); showModal() }}
+          style={{ marginTop: "30px", color: "white", height: "40px", backgroundColor: "rgb(220, 53, 75)" }}
         >
           BOOK
         </Button>
@@ -157,7 +177,10 @@ const Show = ({ show, events, showModal, payload, initFormData }) => {
         />
         Non-Cancellable
       </Typography>
-    </>
+    </> 
+  )}
+ 
+   </>
   );
 };
 export default ShowsList;

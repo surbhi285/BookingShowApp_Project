@@ -1,49 +1,29 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import logo from './logo.svg';
 import './App.css';
-import ShowsPage from './pages/booking/bookingPage/ShowsPage';
-import EventWrapper from './pages/events/EventWrapper';
-import ShowsList from "./pages/booking/bookingPage/ShowsList";
-import BookingConfirmed from "./pages/booking/bookingConfirmation/BookingConfirmed";
+// import Movies from './pages/movies/movielist/MovieListPage';
 
-// import ShowDetail from "./pages/booking/bookingPage/ShowDetail";
+import WrapperMovies from './pages/movies/WrapperMovies';
 
+import { AuthWrapper } from './structure/AuthWrapper';
+import { BrowserRouter } from 'react-router-dom';
+import HeaderFooter from './pages/homepage/HeaderFooter';
+import FooterFile from './pages/homepage/FooterFile';
+import ContentFile, { SearchBar } from './pages/homepage/ContentFile';
 
-// import EventDetailPage from './pages/events/eventdetail/EventDetailPage';
-// import EventListPage from './pages/events/eventlist/EventListPage';
-// import EventList from './pages/eventList';
-// import FilterComponent from './pages/filterComponent';
-
-
-
-export default function App() {
- 
+function App() {
   return (
-  <>
-  <Router>
-  <Routes>
-    
-  {/* <h1>App</h1> */}
-  {/* <Main /> */}
-  {/* <EventList /> */}
-  {/* <EventListPage/> */}
-  {/* <EventDetailPage /> */}
 
-  <Route path="/" element={<EventWrapper />}/>
-  <Route path = "/booking/event" element={<ShowsPage />}/>
-  <Route path="/booking/event/:id" element={<ShowsPage />}/>
-  <Route path="/bookingConfirmation" element={<BookingConfirmed/>}/>
-  </Routes>
-  </Router> 
+    <>
+
+      <BrowserRouter>
+        <HeaderFooter />
+           <AuthWrapper />
+        <FooterFile />
+      </BrowserRouter>
 
 
-
- 
- </>
+    </>
   );
 }
 
-
-
-
-
-
+export default App;
