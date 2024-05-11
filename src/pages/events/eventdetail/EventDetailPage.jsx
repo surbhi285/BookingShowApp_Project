@@ -14,7 +14,8 @@ export default function EventDetailPage({ event, back, onSelectArtist, eventId }
   const[eventDetail, setEventDetail] = useState(null);
 
    const eventNumber = parseInt(eventId);
-   console.log(eventNumber)
+  //  console.log(eventNumber)
+
    useEffect(()=>{
     console.log("called")
     getDetailFunction(eventNumber, "eventId").then((detail)=>{

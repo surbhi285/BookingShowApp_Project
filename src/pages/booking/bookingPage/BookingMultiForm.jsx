@@ -11,46 +11,36 @@ const UI = {
 };
 
 export default function BookingMultiForm({ isModalOpen, handleCancel, handleOk, form, payload, setBookingData, next }) {
-  const [currentUi, setCurrentUi] = useState(UI.Form1);
+    const [currentUi, setCurrentUi] = useState(UI.Form1);
+    const [formData, setFormData] = useState(null);
+    
+    const navigate = useNavigate();
   
-  // console.log(payload, "payy")
-  const handleSubmit1 = (values) => {
-    payload.current.data = { ...payload.current.data, ...values };
-    // console.log("payyyy",payload.current.data);
-    setCurrentUi(UI.Form2)
-
-  };
-  const handleSubmit2 = (values) => {
-    payload.current.data = { ...payload.current.data, ...values };
-    // console.log("payyy2",payload.current.data);
-    setCurrentUi(UI.Form3)
-
-  };
-  
-  const navigate = useNavigate();
-
-
-  const submitForm = (values) => {
-    // console.log("submit", values)
-    const transformedValue = {
-      ...values,
-      date: values["date"]?.map((date) => date.format("DD MMM YYYY")),
-      // date: values["date"].format("DD MMM YYYY"),
+    const handleSubmit1 = (values) => {
+      payload.current.data = { ...payload.current.data, ...values };
+      setCurrentUi(UI.Form2);
     };
-    payload.current.data = { ...payload.current.data, ...transformedValue};
-    if (payload.current.operation === 'ADD') {
-      payload.current.data.eventId = Math.random();
-      // console.log("bokingdata", payload.current.data, )
-      setBookingData({...payload.current.data, ...transformedValue});
-        handleOk(); 
-        next();
-        navigate('/bookingConfirmed');
+  
+    const handleSubmit2 = (values) => {
+      payload.current.data = { ...payload.current.data, ...values };
+      setCurrentUi(UI.Form3);
+    };
+    
+    const submitForm = (values) => {
+      const transformedValue = {
+        ...values,
+        date: values["date"]?.map((date) => date.format("DD MMM YYYY")),
+      };
+      payload.current.data = { ...payload.current.data, ...transformedValue};
+      if (payload.current.operation === 'ADD') {
+        payload.current.data.eventId = Math.random();
+        console.log("payload", payload.current.data)
+        handleOk();
+        // setFormData({...payload.current.data, ...transformedValue}); 
+        navigate('/bookingConfirmed', {state: payload.current.data}); 
+      }
     }
-  };
 
-  const onFinishFailed = (errorInfo) => {
-    // console.log("Failed:", errorInfo);
-  };
 
   return (
     <Modal
@@ -191,7 +181,6 @@ export default function BookingMultiForm({ isModalOpen, handleCancel, handleOk, 
         labelCol={{span:10}}
         name='form3'
           onFinish={submitForm}
-          onFinishFailed={onFinishFailed}
           form={form}
           autoComplete='off'
         >

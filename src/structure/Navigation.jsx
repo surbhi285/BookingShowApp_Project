@@ -36,7 +36,7 @@ export const navList = [
     { path:     "/event/:eventId",    name: "Event Details",  element: <EventArtistWrapper/>,      isMenu: false,    isPrivate: false  },  
     { path:     "/artist/:artistId",    name: "Artist",  element: <ArtistDetailPage/>,      isMenu: true,    isPrivate: false  },
     { path:     "/shows",    name: "Shows",    element: <BookingWrapper/>,      isMenu: true,    isPrivate: false  },
-    { path:     "/events/booking/event/:id",    name: "Shows",    element: <BookingWrapper/>,      isMenu: false,    isPrivate: false  },
+    { path:     "/event/:id/booking/event/:id",    name: "Shows",    element: <BookingWrapper/>,      isMenu: false,    isPrivate: false  },
     { path:     "/bookingConfirmed",    name: "BookingConfirmation",    element: <BookingConfirmed/>,      isMenu: false,    isPrivate: false  },
     // { path:     "/movies/booking/movies/:id",    name: "Shows",    element: <ShowsPage/>,      isMenu: false,    isPrivate: false  },
     //{ path:     "/bookingConfirmation",    name: "BookingConfirmation",    element: <BookingConfirmed/>,      isMenu: false,    isPrivate: false  },

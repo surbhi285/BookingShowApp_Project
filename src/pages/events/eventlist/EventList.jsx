@@ -41,7 +41,7 @@ const EventList = ({
       setEventsList(events);
     });
   }, [updatedCount]);
-  // console.log(eventsList);
+  console.log("list", eventsList);
 
   useEffect(() => {
     if (searchObj && eventsList) {

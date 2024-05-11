@@ -17,5 +17,7 @@
     "cancel": "Cancel", 
     "updateEvent": "Update Event", 
     "eventDetail": "Event Detail", 
-    "comdey":"Comedy"
+    "comdey":"Comedy", 
+    "eventsInDelhi-NCR":"Events in Delhi-NCR", 
+    "filters":"Filters"
 }

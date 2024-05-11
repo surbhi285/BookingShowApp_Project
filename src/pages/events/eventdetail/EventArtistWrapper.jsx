@@ -31,8 +31,8 @@ const EventArtistWrapper = ({ back, event }) => {
     eventId = params.eventId;
     console.log(eventId, "eventId")
     back=()=>{
-      let url = (location.state?.from?.pathname + location.state?.from?.search || '') || "/events"
-      navigate (url)
+      let url = (location.state?.from?.pathname+location.state?.from?.search||'') || "/events"
+      navigate(url)
     }
     handleSelectArtist=artistId=> navigate(`/artist/${artistId}`, {state:{from: location}})
   }

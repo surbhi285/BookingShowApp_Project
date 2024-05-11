@@ -7,55 +7,60 @@ import { Form } from "antd";
 import { useLocation, useNavigate, useParams, useSearchParams } from "react-router-dom";
 import BookingMultiForm from "./BookingMultiForm";
 import moment from "moment";
+import { getFunctions } from "../../../services/movie/movies";
 
 
 export default function CreateBookingPage({setBookingData, next}) {
 
   const [searchParams, setSearchParams] = useSearchParams()
-    
-  // const queryParams = {};
-  // searchParams.forEach((value, key) => {
-  //     queryParams[key] = value;
-  // })
-
+  
+ 
   const queryParams = {};
   searchParams.forEach((value, key) => {
-    if (queryParams[key]) {
-      if (Array.isArray(queryParams[key])) {
-        queryParams[key].push(value);
-      } else {
-        queryParams[key] = [queryParams[key], value];
-      }
-    } else {
-      queryParams[key] = value;
-    }
+      queryParams[key] = value.split("|");  
   });
-  console.log(queryParams)
+
+  console.log("queryParams", queryParams);
+  
+  console.log("queryParams", queryParams);
       
   const { id } = useParams();
   const [showSearch, setShowSearch] = useState(queryParams);
   const [shows, setShows] = useState(null);
   const [events, setEvents] = useState(null);
+  const [movies, setMovies] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [form] = Form.useForm();
 
-  const setSearchUrl=(searchObject)=>{
-    setSearchParams(searchObject)
-    setShowSearch(searchObject)
-}
 
-  
-  useEffect(() => {
-    Promise.all([getFunction(), getShowFunction()]).then((data) => {
-      setEvents(data[0]);
-      if (id) {
-        let show = data[1]?.filter((show) => {
-          return show.showId === parseInt(id);
-        });
-        setShows(show);
-      } else setShows(data[1]);
-    });
-  }, [id]);
+const setSearchUrl = (searchObject) => {
+  const newSearchParams = new URLSearchParams();
+  Object.entries(searchObject).forEach(([key, value]) => {
+    if (Array.isArray(value)) {
+      newSearchParams.append(key, value.join("|"));
+    } else {
+      newSearchParams.append(key, value);
+    }
+  });  
+  setShowSearch(searchObject);
+  setSearchParams(newSearchParams);
+};
+
+
+useEffect(() => {
+  Promise.all([getFunction(), getShowFunction(), getFunctions()]).then((data) => {
+    setEvents(data[0]);
+    setMovies(data[2])
+    if (id) {
+      console.log(id)
+      let show = data[1]?.filter((show) => {
+        return show.showId === parseInt(id);
+      });
+      setShows(show);
+    } else setShows(data[1]);
+  });
+}, [id]);
+console.log("shows", shows)
 
   let payload = useRef({
     operation: "",
@@ -110,6 +115,7 @@ export default function CreateBookingPage({setBookingData, next}) {
          <ShowsList
          showSearch={showSearch}
          events={events}
+         movies={movies}
          shows={shows}
          showModal={showModal}
          payload={payload}
@@ -135,6 +141,7 @@ export default function CreateBookingPage({setBookingData, next}) {
           <ShowsList
             showSearch={showSearch}
             events={events}
+            movies={movies}
             shows={shows}
             showModal={showModal}
             payload={payload}

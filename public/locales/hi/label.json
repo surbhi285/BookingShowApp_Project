@@ -17,5 +17,7 @@
     "cancel": "रद्द करें", 
     "updateEvent": "अद्यतन करें",
     "eventDetail" : "कार्यक्रम विवरण", 
-    "comedy":"कार्यक्रम"
+    "comedy":"कार्यक्रम",
+    "eventsInDelhi-NCR": " दिल्ली-एनसीआर में कार्यक्रम", 
+    "filters":"फिल्टर"
 }

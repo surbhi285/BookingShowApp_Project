@@ -1,5 +1,6 @@
 import { Button, Flex, Typography, Layout, Collapse, Space } from "antd";
 import LanguageSelector from "./LanguageSelector";
+import { TranslateFunction } from "../../../utils/internationalization";
 
 
 const genres = [
@@ -19,13 +20,13 @@ const languages = ["Hindi", "English", "Punjabi", "Urdu"];
 const location = ["Noida", "Delhi", "Gurugram"];
 
 export default function FilterEventList({ searchObj, setSearchObj }) {
-
+  const translation = TranslateFunction("label");
   return (
     <>
       <Typography.Title style={{ marginLeft: "5%" }}>
-        Events in Delhi-NCR
+        {translation("eventsInDelhi-NCR")}
       </Typography.Title>
-      <div>
+      <div style={{marginRight:"50px", marginTop:"10px"}}>
        <LanguageSelector />
        </div>
       <Layout style={{ backgroundColor: "white" }}>
@@ -63,7 +64,7 @@ export default function FilterEventList({ searchObj, setSearchObj }) {
       </Layout>
       <div>
         <Typography.Title level={3} style={{ marginLeft: "20%" }}>
-          Filters
+        {translation("filters")}
         </Typography.Title>
         <Layout style={{ backgroundColor: "white", marginLeft: "10px" }}>
           <Layout.Sider style={{ backgroundColor: "white" }}>

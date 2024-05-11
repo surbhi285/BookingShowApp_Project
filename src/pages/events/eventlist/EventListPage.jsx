@@ -22,7 +22,10 @@ export default function EventListPage({
       queryParams[key] = value;
   })
 
+  console.log("queryParams", queryParams)
+
   const [searchObj, setSearchObj] = useState(queryParams);
+
   const setSearchUrl=(searchObject)=>{
     setSearchParams(searchObject)
     setSearchObj(searchObject)

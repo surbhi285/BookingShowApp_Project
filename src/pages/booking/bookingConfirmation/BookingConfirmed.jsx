@@ -1,18 +1,19 @@
-import { Typography, Flex, Row, Col } from "antd";
-import { CheckCircleOutlined, UserOutlined } from "@ant-design/icons";
+import { Typography, Flex, Row, Col, Button } from "antd";
+import { ArrowLeftOutlined, CheckCircleOutlined, UserOutlined } from "@ant-design/icons";
 import { Card } from "antd";
+import { Link, useLocation } from "react-router-dom";
 
 
-export default function BookingConfirmed({ bookingData }) {
+export default function BookingConfirmed() {
+  const location = useLocation();
+  const bookingData = location.state;
+  console.log(bookingData)
 
-  // console.log("booking", bookingData);
 
   return (
     <div
       style={{
-        // backgroundColor: "#F5F5F5",
         minHeight: "100vh",
-        // padding: "20px",
       }}
     >
       <div
@@ -20,7 +21,6 @@ export default function BookingConfirmed({ bookingData }) {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          // paddingLeft: "5%",
           paddingTop: "5px",
           backgroundColor: "#ACE1AF",
           height: "80px",
@@ -28,6 +28,9 @@ export default function BookingConfirmed({ bookingData }) {
           marginBottom: "5%",
         }}
       >
+        <Link to='/'>
+        <Button style={{position:"absolute", left:"0", marginLeft:"10px", backgroundColor:"#ACE1AF", color:"#006A4E", top:"70px"}}> <ArrowLeftOutlined/>Go Back to Home Page</Button>
+        </Link>
         <Typography.Title
           level={2}
           style={{ color: "#006A4E", paddingBottom: "10px" }}
@@ -40,6 +43,7 @@ export default function BookingConfirmed({ bookingData }) {
       </div>
       <Row justify="space-around">
         <Col span={12}>
+          
           <Card
             style={{
               width: 600,
@@ -79,7 +83,7 @@ export default function BookingConfirmed({ bookingData }) {
       }}
     />
     <Typography.Title level={4} style={{ marginLeft: "10px" }}>
-      {bookingData?.name}
+      {bookingData.name}
     </Typography.Title>
   </Flex>
 
@@ -120,23 +124,24 @@ export default function BookingConfirmed({ bookingData }) {
             <Typography.Title level={5}>
                 Movie Name/Event Name: <span style={{marginLeft:"10%"}}> {bookingData?.movieName}</span>
               </Typography.Title>
-              <Typography.Title level={5} style={{marginTop:"-5px"}}>Tickets: <span style={{marginLeft:"50%"}}>{bookingData?.tickets}</span></Typography.Title>
+             <Typography.Title level={5} style={{marginTop:"-5px"}}>Tickets: <span style={{marginLeft:"50%"}}>{bookingData?.tickets}</span></Typography.Title>
               <Typography.Title level={5} style={{marginTop:"-5px"}}>
                 Date: <span style={{ marginLeft: "50%" }}>{bookingData?.date}</span>
-                </Typography.Title>
+                </Typography.Title> 
             <Typography.Title level={5} style={{marginTop:"-5px"}}> Time: <span style={{ marginLeft: "55%" }}>{bookingData?.timing}</span></Typography.Title>
             <Typography.Title level={5} style={{marginTop:"-5px"}}>Price: <span style={{ marginLeft: "55%" }}>₹{bookingData?.price}</span></Typography.Title>
-            <Typography.Title level={5} style={{marginTop:"-5px"}}>Seat Number:<span style={{ marginLeft: "37%" }}>{bookingData?.seatNumber}</span></Typography.Title>
+            <Typography.Title level={5} style={{marginTop:"-5px"}}>Seat Number:<span style={{ marginLeft: "37%" }}>{bookingData?.seatNumber}</span></Typography.Title> 
               <Typography.Title level={2} style={{ marginLeft: "5px", color: "rgb(220, 53, 75)"}}>
                 Total Price{" "}
                 <span style={{ marginLeft: "25%"}}>
                   ₹ {bookingData?.totalPrice}
                 </span>
-              </Typography.Title>
+              </Typography.Title> 
             </div>
           </Card>
         </Col>
       </Row>
+     
     </div>
   );
 }

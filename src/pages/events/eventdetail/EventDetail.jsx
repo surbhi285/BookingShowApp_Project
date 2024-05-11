@@ -102,7 +102,7 @@ console.log(review, "review")
                   {detail?.language?.join(", ")} |{" "}
                   {detail?.censorBoardRating} | {detail?.duration}
                 </Typography>
-                <Link to={`booking/event/${detail.eventId}`}>
+                <Link to={`/event/${detail.eventId}/booking/event/${detail.eventId}`}>
                   <Button
                     type="primary"
                     style={{
