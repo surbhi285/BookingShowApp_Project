@@ -10,6 +10,15 @@ export function getFunction(){
     })
 }
 
+
+export function getDetailFunction(eventId, pk){
+    return new Promise((resolve)=>{
+        eventsDetail = crudOperation.getDetail(eventsDetail, eventId, pk);
+        console.log(eventsDetail, "crud");
+        resolve(eventsDetail);
+    })
+}
+
 export function addFunction(newEvent){   
     return new Promise((resolve) =>{
         eventsDetail = crudOperation.add([...eventsDetail], newEvent);

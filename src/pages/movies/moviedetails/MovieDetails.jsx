@@ -36,7 +36,7 @@ const findReview = () => {
     setReview([...review, payload.current.operation])
     initFormData();
   }
-  console.log("payload",payload.current.data)
+  // console.log("payload",payload.current.data)
     return (
         <>
          <Flex style={{ justifyContent: "space-between", marginBottom: "10px" }}>

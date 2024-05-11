@@ -2,7 +2,7 @@
     {
         "eventId" : 1,
         "eventName" : "Rajkumari by Nayab Midha - A Poetry Special",
-        "eventPoster" :"assets/events/rajkumari.jpg",
+        "eventPoster" :"/assets/events/rajkumari.jpg",
         "language" : ["Hindi","English", "Urdu"],
         "duration" : "2hrs",
         "genres" : ["Poetry"],
@@ -11,7 +11,7 @@
         "date": ["28 April 2024", "29 April 2024","30 April 2024"],
         "eventTime": ["04:00 PM"],
         "price" : 499,
-        "eventImage": "assets/eventDetail/rajkumari.avif",
+        "eventImage": "/assets/eventDetail/rajkumari.avif",
         "artist":[{
             "artistId": 19,
         "name": "Nayab Midha ",
@@ -29,7 +29,7 @@
 {
     "eventId" : 2,
     "eventName" : "Kisi Ko Batana Mat By Anubhav Singh Bassi",
-    "eventPoster" : "assets/events/anubhav.jpg",
+    "eventPoster" : "/assets/events/anubhav.jpg",
     "language" : ["Hindi"],
     "duration" : "1hr 40mins",
     "genres" : ["Comedy"],
@@ -38,7 +38,7 @@
     "date": ["23 April 2024"],
     "eventTime": "08:00 PM",
     "price": 599,
-    "eventImage" : "assets/eventDetail/anubhavSingh.avif",
+    "eventImage" : "/assets/eventDetail/anubhavSingh.avif",
     "artist":[{
         "artistId": 11,
         "name": "Anubhav Singh Bassi",
@@ -57,7 +57,7 @@
 {
     "eventId" : 3,
     "eventName" : "Jo Bolta Hai Wohi Hota Hai Ft. Harsh Gujral",
-    "eventPoster" : "assets/events/harsh.jpg",
+    "eventPoster" : "/assets/events/harsh.jpg",
     "language" : ["Hindi", "English"],
     "duration" : "1hr 30mins",
     "genres" : ["Comedy"],
@@ -66,7 +66,7 @@
     "date": ["12 April 2024"],
     "eventTime": "07:00 PM",
     "price": 999,
-    "eventImage": "assets/eventDetail/harsh.avif",
+    "eventImage": "/assets/eventDetail/harsh.avif",
     "artist":[{
         "artistId": 12,
         "name": "Harsh Gujral",
@@ -83,7 +83,7 @@
 {
     "eventId" : 4,
     "eventName" : "World Jazz Festival-Delhi",
-    "eventPoster" : "assets/events/jazz.jpg",
+    "eventPoster" : "/assets/events/jazz.jpg",
     "language" : ["English"],
     "duration" : "3hrs",
     "genres" : ["Jazz"],
@@ -92,7 +92,7 @@
     "date": ["20 April 2024"],
     "eventTime": "02:00 PM",
     "price": 750,
-    "eventImage":"assets/eventDetail/worldJaz.avif",
+    "eventImage":"/assets/eventDetail/worldJaz.avif",
     "artist":[{
         "artistId": 40,
         "name": "Sarathy Korwar",
@@ -126,7 +126,7 @@
 {
     "eventId" : 5,
     "eventName" : "BMW Joytown 2024",
-    "eventPoster" :"assets/events/joyTown.jpg",
+    "eventPoster" :"/assets/events/joyTown.jpg",
     "language" : ["English","Hindi","Punjabi"],
     "duration" : "6hrs",
     "genres" : ["Bollywood","EDM", "International"],
@@ -135,7 +135,7 @@
     "date": ["10 April 2024","11 April 2024", "12 April 2024"],
     "eventTime": "05:00 PM",
     "price": 1099,
-    "eventImage": "assets/eventDetail/joy.avif",
+    "eventImage": "/assets/eventDetail/joy.avif",
     "artist":[{
         "artistId": 4,
         "name": "Diljit Dosanjh ",
@@ -163,7 +163,7 @@
 {
     "eventId" : 6,
     "eventName" : "Main Shayar Toh Nahin ft Manhar Seth",
-    "eventPoster" : "assets/events/manharSeth.jpg",
+    "eventPoster" : "/assets/events/manharSeth.jpg",
     "language" : ["English","Hindi","Punjabi"],
     "duration" : "1hr 30mins",
     "genres" : ["Comedy"],
@@ -172,7 +172,7 @@
     "date": ["10 April 2024"],
     "eventTime": "06:00 PM",
     "price": 999,
-    "eventImage": "assets/eventDetail/mainShayar.avif",
+    "eventImage": "/assets/eventDetail/mainShayar.avif",
     "artist":[{
         "artistId": 20,
         "name": "Manhar Seth ",
@@ -190,7 +190,7 @@
 {
     "eventId" : 7,
     "eventName" : "PokerBaazi Presents Sagar Wali Qawwali",
-    "eventPoster" : "assets/events/sagarwali.jpg",
+    "eventPoster" : "/assets/events/sagarwali.jpg",
     "language" : ["Hindi"],
     "duration" : "2hrs",
     "genres" : ["Sufi"],
@@ -199,7 +199,7 @@
     "date": ["25 April 2024", "26 April 2024", "27 April 2024"],
     "eventTime": "07:00 PM",
     "price": 899,
-    "eventImage": "assets/eventDetail/sagar.avif",
+    "eventImage": "/assets/eventDetail/sagar.avif",
     "artist":[{
         "artistId": 24,
         "name": "Sagar Bhatia",
@@ -217,7 +217,7 @@
 {
     "eventId" : 8,
     "eventName" : "Lemons & Peaches ft. Gursimran Khamba",
-    "eventPoster" : "assets/events/gaursimran.jpg",
+    "eventPoster" : "/assets/events/gaursimran.jpg",
     "language" : ["Hindi", "English"],
     "duration" : "2hr",
     "genres" : ["Comedy"],
@@ -226,7 +226,7 @@
     "date":["18 April 2024", "19 April 2024","20 April 2024"],
     "eventTime": "05:00 PM",
     "price": 499,
-    "eventImage": "assets/eventDetail/lemon.avif",
+    "eventImage": "/assets/eventDetail/lemon.avif",
     "artist":[{
         "artistId": 13,
         "name": "Gursimran Khamba",
@@ -243,7 +243,7 @@
 {
     "eventId" : 9,
     "eventName" : "Qawwali by Nizami Bandhu",
-    "eventPoster" : "assets/events/nizam.jpg",
+    "eventPoster" : "/assets/events/nizam.jpg",
     "language" : ["Hindi"],
     "duration" : "1hr",
     "genres" : ["Indian Classical"],
@@ -252,7 +252,7 @@
     "date": ["20 April 2024","21 April 2024","22 April 2024"],
     "eventTime": "05:00 PM",
     "price": 599,
-    "eventImage": "assets/eventDetail/nizami.avif",
+    "eventImage": "/assets/eventDetail/nizami.avif",
     "artist":[{
         "artistId": 25,
         "name": "Nizami Bandhu",
@@ -270,7 +270,7 @@
 {
     "eventId" : 10,
     "eventName" : "Youth Speak Forum 2024",
-    "eventPoster" : "assets/events/youthforum.jpg",
+    "eventPoster" : "/assets/events/youthforum.jpg",
     "language" : ["English","Hindi"],
     "duration" : "9hrs",
     "genres" : [ "Education", "Technology"],
@@ -279,7 +279,7 @@
     "date": ["20 April 2024"],
     "eventTime": "10:00 AM",
     "price": 300,
-    "eventImage": "assets/eventDetail/youthSpeaker.avif",
+    "eventImage": "/assets/eventDetail/youthSpeaker.avif",
     "artist":[{
         "artistId": 36,
         "name": "Anjana Om Kashyap",
@@ -307,7 +307,7 @@
 {
     "eventId" : 11,
     "eventName" : "Pottery Painting",
-    "eventPoster" : "assets/events/pottery.jpg",
+    "eventPoster" : "/assets/events/pottery.jpg",
     "language" : ["English","Hindi"],
     "duration" : "1hr",
     "genres" : ["Workshop"],
@@ -316,7 +316,7 @@
     "date": ["21 April 2024"],
     "eventTime": "11:00 AM",
     "price": 300,
-    "eventImage": "assets/eventDetail/pottery.avif",
+    "eventImage": "/assets/eventDetail/pottery.avif",
     "artist":[{
         "artistId": 39,
         "name": "Brahmdeo Ram Pandit",
@@ -326,9 +326,9 @@
         ]
     }]
 },{
-    "eventId" : 12,
+    "eventId" : 19,
     "eventName" : "The Late Night Comedy Show",
-    "eventPoster" : "assets/events/nightshows.jpg",
+    "eventPoster" : "/assets/events/nightshows.jpg",
     "language" : ["English","Hindi"],
     "duration" : "3hr",
     "genres" : ["Comedy"],
@@ -337,7 +337,7 @@
     "date": ["05 May 2024"],
     "eventTime": "11:00 PM",
     "price": 300,
-    "eventImage": "assets/eventDetail/latenightshow.avif",
+    "eventImage": "/assets/eventDetail/latenightshow.avif",
     "artist":[{
             "artistId": 44,
             "name": "Inder Sahani",

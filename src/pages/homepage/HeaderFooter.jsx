@@ -66,7 +66,7 @@ const HeaderFooter = () => {
   // }, [getAccessTokenSilently, user?.sub]);
 
 
-  console.log('location from state', user, location.state?.from)
+  // console.log('location from state', user, location.state?.from)
 
   const items = navList.map((r, i) => {
     if (!r.isPrivate && r.isMenu) {
@@ -83,7 +83,7 @@ const HeaderFooter = () => {
   } = theme.useToken();
 
   const navigateUrl = (e) => {
-    console.log('click ', e);
+    // console.log('click ', e);
     nav(e.key)
     //setCurrent(e.key);
   };

@@ -1,0 +1,21 @@
+{
+    "addEvent": "Add Event",
+    "eventName" : "Event Name",
+    "eventPoster": "Event Poster",
+    "language":"Language",
+    "eventDuration": "Event Duration",
+    "eventGenre": "Event Genre",
+    "eventVenue" : "Event Venue",
+    "censorBoardRating": "Censor Board Rating",
+    "date" :"Date",
+    "eventTime":"Event Time",
+    "price": "Price",
+    "eventDetailPoster" : "Event Detail Poster", 
+    "addArtist" : "Add Artist", 
+    "artistName":"Artist Name",
+    "artistImage": "Artist Image",
+    "cancel": "Cancel", 
+    "updateEvent": "Update Event", 
+    "eventDetail": "Event Detail", 
+    "comdey":"Comedy"
+}

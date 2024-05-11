@@ -12,6 +12,7 @@ export default function FormRouter({ setEvent, next }) {
   const [isModelOpen, setIsModalOpen] = useState(false);
   const [form] = Form.useForm();
 
+  console.log("form")
   const showModal = () => {
     setIsModalOpen(true);
   };
@@ -57,13 +58,13 @@ export default function FormRouter({ setEvent, next }) {
         ...payload.current.data, 
         date: payload.current.data.date.map(date => moment(date, "DD MMM YYYY")),
       }
-      console.log("artist", payload)
+      // console.log("artist", payload)
       form.setFieldsValue(payload.current.data)
     }else{
       form.resetFields();
     }
   };
-  console.log(payload.current.data);
+  // console.log(payload.current.data);
 
   return (
     <>
@@ -74,7 +75,6 @@ export default function FormRouter({ setEvent, next }) {
         handleOk={handleOk}
         handleCancel={handleCancel}
         isModalOpen={isModelOpen}
-        setEvent={setEvent}
         initFormData={initFormData}
       />
 

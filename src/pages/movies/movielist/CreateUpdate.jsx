@@ -13,7 +13,7 @@ export default function CreateUpdate({
 }) {
   const submitForm = (values) => {
     payload.current.data = { ...payload.current.data, ...values };
-    console.log(payload.current.data, "create")
+    // console.log(payload.current.data, "create")
     if (payload.current.operation === "ADD") {
       payload.current.data.movieId = Math.random();
       addFunction(payload.current.data).then((data) => {
@@ -23,11 +23,11 @@ export default function CreateUpdate({
       });
     } else {
       updateFunction(payload.current.data, "movieId").then((data) => {
-        console.log(data)
+        // console.log(data)
         // onSelectMovie(data.movieId);
         setUpdatedCount((count) => count + 1);
         handleCancel();
-       console.log(data);
+    //    console.log(data);
       });
     }
   };
@@ -176,13 +176,11 @@ export default function CreateUpdate({
                 <Input style={{
                     width: '100%',
                 }} placeholder="'Please provide Censor Board Rating', " />
-<<<<<<< HEAD
-            </Form.Item >     
-=======
+
             </Form.Item > */}
           
           
->>>>>>> 90ef61c41a9e842fcb8729d2aaa5a18850672739
+
           <Form.Item>
             <Button type="primary" onClick={handleCancel}>
               Cancel

@@ -9,17 +9,19 @@ import { BrowserRouter } from 'react-router-dom';
 import HeaderFooter from './pages/homepage/HeaderFooter';
 import FooterFile from './pages/homepage/FooterFile';
 import ContentFile, { SearchBar } from './pages/homepage/ContentFile';
+import LanguageSelector from './pages/events/eventlist/LanguageSelector';
+
 
 function App() {
   return (
 
     <>
-
       <BrowserRouter>
         <HeaderFooter />
            <AuthWrapper />
         <FooterFile />
       </BrowserRouter>
+     
 
 
     </>

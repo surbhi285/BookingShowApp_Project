@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Modal, Input, Form, Button, DatePicker } from 'antd';
+import { useNavigate } from 'react-router-dom';
 //import { addBookingFunction } from '../../../services/booking/booking';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 const UI = {
   Form1: "Form1",
@@ -12,35 +13,43 @@ const UI = {
 export default function BookingMultiForm({ isModalOpen, handleCancel, handleOk, form, payload, setBookingData, next }) {
   const [currentUi, setCurrentUi] = useState(UI.Form1);
   
-  console.log(payload, "payy")
+  // console.log(payload, "payy")
   const handleSubmit1 = (values) => {
     payload.current.data = { ...payload.current.data, ...values };
-    console.log("payyyy",payload.current.data);
+    // console.log("payyyy",payload.current.data);
     setCurrentUi(UI.Form2)
 
   };
   const handleSubmit2 = (values) => {
     payload.current.data = { ...payload.current.data, ...values };
-    console.log("payyy2",payload.current.data);
+    // console.log("payyy2",payload.current.data);
     setCurrentUi(UI.Form3)
 
   };
   
+  const navigate = useNavigate();
+
 
   const submitForm = (values) => {
-    console.log("submit", values)
-    payload.current.data = { ...payload.current.data, ...values };
+    // console.log("submit", values)
+    const transformedValue = {
+      ...values,
+      date: values["date"]?.map((date) => date.format("DD MMM YYYY")),
+      // date: values["date"].format("DD MMM YYYY"),
+    };
+    payload.current.data = { ...payload.current.data, ...transformedValue};
     if (payload.current.operation === 'ADD') {
       payload.current.data.eventId = Math.random();
-      console.log("bokingdata", payload.current.data, )
-      setBookingData({...payload.current.data, ...values});
+      // console.log("bokingdata", payload.current.data, )
+      setBookingData({...payload.current.data, ...transformedValue});
         handleOk(); 
         next();
+        navigate('/bookingConfirmed');
     }
   };
 
   const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
+    // console.log("Failed:", errorInfo);
   };
 
   return (
@@ -128,8 +137,8 @@ export default function BookingMultiForm({ isModalOpen, handleCancel, handleOk, 
         <Input />
       </Form.Item>
 
-      <Form.Item label="DatePicker">
-          <DatePicker />
+      <Form.Item name="date" label="DatePicker">
+          <DatePicker multiple/>
         </Form.Item>
 
       <Form.Item
@@ -169,7 +178,7 @@ export default function BookingMultiForm({ isModalOpen, handleCancel, handleOk, 
       >
         <Input />
       </Form.Item>
-          <Button type="primary" onClick={() => setCurrentUi(UI.Form1)}>
+          <Button type="primary" onClick={() => setCurrentUi(UI.Form1)} style={{marginRight:20}}>
             Back
           </Button>
           <Button type="primary" htmlType="submit">
@@ -240,8 +249,8 @@ export default function BookingMultiForm({ isModalOpen, handleCancel, handleOk, 
         <Input />
       </Form.Item>
 
-      <Form.Item label="DatePicker">
-          <DatePicker />
+      <Form.Item name="date" label="DatePicker">
+          <DatePicker multiple/>
         </Form.Item>
 
       <Form.Item
@@ -280,7 +289,7 @@ export default function BookingMultiForm({ isModalOpen, handleCancel, handleOk, 
       >
         <Input />
       </Form.Item>
-          <Button type="primary" onClick={() => setCurrentUi(UI.Form2)}>
+          <Button type="primary" onClick={() => setCurrentUi(UI.Form2)} style={{marginRight:20}}>
             Back
           </Button>
             <Button type="primary" htmlType="submit" >

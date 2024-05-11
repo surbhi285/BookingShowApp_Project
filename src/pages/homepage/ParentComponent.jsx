@@ -11,7 +11,7 @@ const ParentComponent = () => {
   const handleInputChange = (value) => {
     setInputText(value);
   };
-  console.log(inputText, "nivisha")
+  // console.log(inputText, "nivisha")
   return (
     <>
       <SearchBar setInputText={handleInputChange} />

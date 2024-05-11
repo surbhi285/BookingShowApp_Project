@@ -3,10 +3,14 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import './utils/internationalization';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+    <React.Suspense fallback="Loading">
     <App />
+    </React.Suspense>
   
 );
 

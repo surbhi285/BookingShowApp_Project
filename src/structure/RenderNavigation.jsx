@@ -10,6 +10,7 @@ export const RenderRoutes = () => {
     const isAuthenticated=false
     const location = useLocation();
     return (
+        // <></>
         <Routes>
             {navList.map((r, i) => {
 

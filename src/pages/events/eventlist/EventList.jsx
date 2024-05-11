@@ -7,7 +7,9 @@ import {
   DeleteOutlined,
   PlusOutlined,
 } from "@ant-design/icons";
+import { TranslateFunction } from "../../../utils/internationalization";
 const filterEvents = (events, searchObj) => {
+  console.log("filterevnets" , events)
   return events.filter((event) => {
     if (
       !searchObj ||
@@ -28,29 +30,31 @@ const EventList = ({
   initFormData,
   updatedCount,
   showModal,
-  handleDelete
+  handleDelete, 
+  onSelectEvent
 }) => {
-  const [eventsList, setEventsList] = useState([]);
+  const [eventsList, setEventsList] = useState(null);
   const [filteredEvents, setFilteredEvents] = useState(null);
+  const button = TranslateFunction("label");
   useEffect(() => {
     getFunction().then((events) => {
       setEventsList(events);
     });
   }, [updatedCount]);
-  console.log(eventsList);
+  // console.log(eventsList);
 
   useEffect(() => {
     if (searchObj && eventsList) {
       let filteredEvents = filterEvents(eventsList, searchObj);
       setFilteredEvents(filteredEvents);
     }
-  }, [eventsList, searchObj]);
+  }, [eventsList, searchObj]);  
+
 
   const initCreateUpdate = (id) => {
     if (id === undefined) {
       payload.current.operation = "ADD";   
       payload.current.data = {};
-      console.log(payload, "karsh")
       initFormData();
 
     } else {
@@ -62,7 +66,6 @@ const EventList = ({
       (event) => event.eventId === payload.current.data.eventId
     );
     payload.current.data = eventObj;
-    console.log("eventObj", eventObj)
     initFormData();
     }
 }
@@ -71,13 +74,11 @@ const EventList = ({
     <>
       <Button
         style={{
-          backgroundColor: "rgb(220, 53, 75)",
           color: "white",
           marginBottom: "20px",
           marginLeft: "80%",
           width: "15%",
           backgroundColor: "rgb(220, 53, 75)",
-          color: "white",
           marginTop: "5%",
           marginRight: "5%",
           padding: 0,
@@ -88,11 +89,11 @@ const EventList = ({
         }}
       >
         <PlusOutlined />
-        ADD EVENT
+        {button("addEvent")}
       </Button>
       <Row justify="space-between">
         {filteredEvents && filteredEvents.length > 0 ? (
-          filteredEvents.map((event) => (
+          filteredEvents.map((event) => ( 
             <Col key={event.eventId} span={7}>
               <Event
                 key={event.eventId}
@@ -103,8 +104,10 @@ const EventList = ({
                 handleDelete={handleDelete}
                 initCreateUpdate={initCreateUpdate}
                 showModal={showModal}
+                onSelectEvent={onSelectEvent}
               />
             </Col>
+          
           ))
         ) : (
           <Typography.Title style={{ color: "rgb(220, 53, 75)" }}>
@@ -123,12 +126,16 @@ const Event = ({
   initCreateUpdate,
   showModal,
   handleDelete,
+ onSelectEvent,
 }) => {
   const handleClick = () => {
-    setEvent(event);
-    next();
+    // setEvent(event);
+    // next();
+    console.log("handle")
+    onSelectEvent(event.eventId);  
   };
 
+  console.log("eventlist", event)
   return (
     <>
       <Card

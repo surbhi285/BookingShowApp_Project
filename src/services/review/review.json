@@ -293,14 +293,14 @@
     "rating" : 4,
     "review" : "Tears in his eyes",
     "category": "event",
-    "categoryId" : 12,
+    "categoryId" : 19,
     "userId": 1 
 },{
     "reviewId" : 38,
     "rating" : 5,
     "review" : "He is really something  I didn't knew he can also do these kind of stage works. I love this man even more now. Bhaiya chaaaa gyee",
     "category": "event",
-    "categoryId" : 12,
+    "categoryId" : 19,
     "userId": 2   
 }, 
 {
@@ -308,7 +308,7 @@
     "rating" : 2,
     "review" : "Extremely cringey commentary. At least gaanay ki tou izzat karte bhae. The song portrays the love and separation in a respectful way.",
     "category": "event",
-    "categoryId" : 12,
+    "categoryId" : 19,
     "userId": 3  
 }, 
 {
@@ -316,7 +316,7 @@
     "rating" : 5,
     "review" : "I have listened  this song  atleat 1 lakh times but this sing never getting old",
     "category": "event",
-    "categoryId" : 12,
+    "categoryId" : 19,
     "userId": 4  
 },
 {
@@ -324,7 +324,7 @@
     "rating" : 4,
     "review" : "Master piece",
     "category": "event",
-    "categoryId" : 12,
+    "categoryId" : 19,
     "userId": 4 
 }, 
 {
@@ -332,6 +332,64 @@
     "rating" : 5,
     "review" : "People may call this bakwas and etc.. But I find peace in this masterpiece...!",
     "category": "event",
-    "categoryId" : 12,
+    "categoryId" : 19,
     "userId": 5  
+}, {
+    "reviewId" : 43,
+    "rating" : 5,
+    "review" : "Shaitan is a supernatural thriller that develops deep into complexities of human nature and battle between god and evil",
+    "category": "movie",
+    "categoryId" : 12,
+    "userId": 1
+
+},
+{
+    "reviewId" : 44,
+    "rating" : 4,
+    "review" : "best entertaining movie. Must watch",
+    "category": "movie",
+    "categoryId" : 13,
+    "userId": 2
+
+},
+{
+    "reviewId" : 45,
+    "rating" : 4,
+    "review" : "Its just beautiful",
+    "category": "movie",
+    "categoryId" : 14,
+    "userId": 1
+},
+{
+    "reviewId" : 46,
+    "rating" : 4,
+    "review" : "This movie is complete package of emotion, political drama and patriotism",
+    "category": "movie",
+    "categoryId" : 15,
+    "userId": 1  
+},
+{
+    "reviewId" : 47,
+    "rating" : 5,
+    "review" : "Siddharth Malhotra emerges as the new stylish hero in fast paced entertainer",
+    "category": "movie",
+    "categoryId" : 16,
+    "userId": 1  
+},
+{
+    "reviewId" : 48,
+    "rating" : 5,
+    "review" : "Movie is full bang on!!",
+    "category": "movie",
+    "categoryId" : 17,
+    "userId": 1   
+},
+{
+        "reviewId" : 49,
+        "rating" : 5,
+        "review" : "Akshay kumar, Tiger shroff redefine heroism!",
+        "category": "movie",
+        "categoryId" : 18,
+        "userId": 1   
+    
 }]

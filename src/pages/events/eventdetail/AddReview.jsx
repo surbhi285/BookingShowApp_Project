@@ -46,7 +46,7 @@ export default function AddReview({
           form={form}
           autoComplete="off"
         >
-          <Form.Item
+          {/* <Form.Item
             label="Review Id"
             name="reviewId"
             rules={[
@@ -54,7 +54,7 @@ export default function AddReview({
             ]}
           >
             <Input />
-          </Form.Item>
+          </Form.Item> */}
 
           <Form.Item
             label="Rating"

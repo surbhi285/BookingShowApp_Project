@@ -4,24 +4,46 @@ import ShowsList from "./ShowsList";
 import { getFunction } from "../../../services/events/events";
 import { getShowFunction } from "../../../services/shows/shows";
 import { Form } from "antd";
-import { useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams, useSearchParams } from "react-router-dom";
 import BookingMultiForm from "./BookingMultiForm";
+import moment from "moment";
 
-
-const UI = {
-    BookingForm1: "BookingForm1",
-    BookingForm2: "BookingForm2",
-    BookingForm3: "BookingForm3",
-  };
 
 export default function CreateBookingPage({setBookingData, next}) {
 
+  const [searchParams, setSearchParams] = useSearchParams()
+    
+  // const queryParams = {};
+  // searchParams.forEach((value, key) => {
+  //     queryParams[key] = value;
+  // })
+
+  const queryParams = {};
+  searchParams.forEach((value, key) => {
+    if (queryParams[key]) {
+      if (Array.isArray(queryParams[key])) {
+        queryParams[key].push(value);
+      } else {
+        queryParams[key] = [queryParams[key], value];
+      }
+    } else {
+      queryParams[key] = value;
+    }
+  });
+  console.log(queryParams)
+      
   const { id } = useParams();
-  const [showSearch, setShowSearch] = useState({});
+  const [showSearch, setShowSearch] = useState(queryParams);
   const [shows, setShows] = useState(null);
   const [events, setEvents] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [form] = Form.useForm();
+
+  const setSearchUrl=(searchObject)=>{
+    setSearchParams(searchObject)
+    setShowSearch(searchObject)
+}
+
   
   useEffect(() => {
     Promise.all([getFunction(), getShowFunction()]).then((data) => {
@@ -41,10 +63,18 @@ export default function CreateBookingPage({setBookingData, next}) {
   });
 
   const initFormData = () => {
-    payload.current.data
-      ? form.setFieldsValue(payload.current.data)
-      : form.resetFields();
+    if(payload.current.data.eventId){
+      payload.current.data = {
+        ...payload.current.data, 
+        date: payload.current.data.date.map(date => moment(date, "DD MMM YYYY")),
+        // date: payload.current.data.date.moment("DD MMM YYYY"),
+      }
+      form.setFieldsValue(payload.current.data)
+    }else{
+      form.resetFields();
+    }
   };
+  // console.log(payload.current.data);
 
   const showModal = () => {
     setIsModalOpen(true);
@@ -57,6 +87,21 @@ export default function CreateBookingPage({setBookingData, next}) {
   const handleCancel = () => {
     setIsModalOpen(false);
   };
+
+  
+  
+
+
+  // const navigate = useNavigate()
+  //   const location = useLocation()
+
+
+//   const handleBooking = () => {
+//     //onSelectMovie(movieId);
+//     //console.log('handleSelectMovie location', location)
+//     navigate(`/BookingConfirmed`, { state: { from: location } })
+// }
+
 
   return (
     <>
@@ -78,13 +123,14 @@ export default function CreateBookingPage({setBookingData, next}) {
           payload={payload}
           setBookingData={setBookingData}
           next={next}
+          // handleBooking={handleBooking}
         />
      </>
       ) : (
         <>
           <FilterShowsList
             showSearch={showSearch}
-            setShowSearch={setShowSearch}
+            setShowSearch={setSearchUrl}
           />
           <ShowsList
             showSearch={showSearch}
@@ -103,6 +149,7 @@ export default function CreateBookingPage({setBookingData, next}) {
           payload={payload}
           setBookingData={setBookingData}
           next={next}
+          // handleBooking={handleBooking}
         />
         </>
       )}

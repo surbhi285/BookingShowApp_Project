@@ -108,13 +108,82 @@
     "venue" : "Dogra Hall: Delhi",
     "price" : 300  
 }, {
-    "showId" :12,
+    "showId" :19,
     "category": "event",
-    "categoryId": 12,
+    "categoryId": 19,
     "date" :["05 May 2024"],
     "timing":["11:00 PM"],
     "language" : ["English","Hindi"],
     "venue" : "Guftagu Cafe, Gurugram",
     "price" : 300  
+}, {
+    "showId" :12,
+    "category": "movie",
+    "categoryId": 12,
+    "date" :["25 April 2024", "26 April 2024", "27 April 2024"],
+    "timing":["10:00 AM", "02:00 PM", "06:00 PM"],
+    "language" : ["Hindi", "Tamil"],
+    "venue" : ["Mall of Faridabad", "Gaur City of Noida", "Mall of Saket"],
+    "price" : 200 
+},
+{
+    "showId" :13,
+    "category": "movie",
+    "categoryId": 13,
+    "date" :["30 April 2024", "1 May 2024", "2 May 2024"],
+    "timing":["10:00 AM", "02:00 PM", "06:00 PM"],
+    "language" : ["Hindi","English","Tamil","Telugu"],
+    "venue" : ["Mall of Faridabad", "Gaur City of Noida", "Mall of Saket"],
+    "price" : 150  
+},
+{
+    "showId" :14,
+    "category": "movie",
+    "categoryId": 14,
+    "date" :["3 May 2024", "4 May 2024", "5 May 2024"],
+    "timing":["11:00 AM", "03:00 PM", "07:00 PM"],
+    "language" : ["Hindi","English","Tamil","Telugu"],
+    "venue" : ["Mall of Faridabad", "Gaur City of Noida", "Mall of Saket"],
+    "price" : 300
+}, 
+{
+    "showId" :15,
+    "category": "movie",
+    "categoryId": 15,
+    "date" :["3 May 2024", "4 May 2024", "5 May 2024"],
+    "timing":["10:00 AM", "04:00 PM", "09:00 PM"],
+    "language" : ["Hindi"],
+    "venue" : ["Mall of Faridabad", "Gaur City of Noida", "Mall of Saket"],
+    "price" : 350
+},
+{
+    "showId" :16,
+    "category": "movie",
+    "categoryId": 16,
+    "date" :["10 April 2024","11 April 2024", "12 April 2024"],
+    "timing":["09:00 AM", "01:00 PM", "04:00 PM"],
+    "language" : ["Hindi"],
+    "venue" : ["Mall of Faridabad", "Gaur City of Noida", "Mall of Saket"],
+    "price" : 150
+},
+{
+    "showId" :17,
+    "category": "movie",
+    "categoryId": 17,
+    "date" :["25 April 2024","26 April 2024", "27 April 2024"],
+    "timing":["10:00 AM", "03:00 PM", "07:00 PM"],
+    "language" : ["Hindi"],
+    "venue" :["Mall of Faridabad", "Gaur City of Noida", "Mall of Saket"],
+    "price" : 250
+},
+{
+    "showId" :18,
+    "category": "movie",
+    "categoryId": 18,
+    "date" :["25 April 2024", "26 April 2024", "27 April 2024"],
+    "timing":["08:00 AM", "02:00 PM", "07:00 PM"],
+    "language" : ["Hindi","Tamil","Telugu","kannada"],
+    "venue" : ["Mall of Faridabad", "Gaur City of Noida", "Mall of Saket"],
+    "price" : 200  
 }]
 

@@ -45,25 +45,25 @@ const UI = {
 };
 
 const WrapperMovies = () => {
-    console.log('Shows Page Accessed')
+    // console.log('Shows Page Accessed')
    const [ui, setUI] = useState(UI.MovieListPage);
-   const [selectedMovieId, setSelectedMovieId] = useState(null);
+//    const [selectedMovieId, setSelectedMovieId] = useState(null);
 
-   const handleSelectMovie = (movieId) => {
-       setSelectedMovieId(movieId);
+//    const handleSelectMovie = (movieId) => {
+//        setSelectedMovieId(movieId);
     
-       setUI(UI.MovieArtistDetailWrapper);
-   };
+//        setUI(UI.MovieArtistDetailWrapper);
+//    };
 
-   const handleBack = () => {
-       setSelectedMovieId(null);
-       setUI(UI.MovieListPage);
-   };
+//    const handleBack = () => {
+//        setSelectedMovieId(null);
+//        setUI(UI.MovieListPage);
+//    };
  
    return (
        <>
-           {ui === UI.MovieListPage && <SingleRouter onSelectMovie={handleSelectMovie}/>}
-           {ui === UI.MovieArtistDetailWrapper && <MovieArtistDetailWrapper movieId={selectedMovieId} back={handleBack} />}
+           {ui === UI.MovieListPage && <SingleRouter />}
+           {ui === UI.MovieArtistDetailWrapper && <MovieArtistDetailWrapper />}
        </>
    );
 };

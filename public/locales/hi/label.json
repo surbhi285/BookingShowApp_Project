@@ -1,0 +1,21 @@
+{
+    "addEvent": "कार्यक्रम जोड़ें",
+    "eventName" : "कार्यक्रम का नाम",
+    "eventPoster": "कार्यक्रम का पोस्टर",
+    "language": "भाषा",
+    "eventDuration": "कार्यक्रम की अवधि",
+    "eventGenre": "कार्यक्रम की शैली",
+    "eventVenue" : "कार्यक्रम का स्थल",
+    "censorBoardRating": "सेंसर बोर्ड रेटिंग",
+    "date" :"दिनांक",
+    "eventTime":"कार्यक्रम का समय",
+    "price": "कीमत",
+    "eventDetailPoster" : "कार्यक्रम विवरण का पोस्टर",
+    "addArtist" : "कलाकार जोड़ें",
+    "artistName":"कलाकार का नाम" ,
+    "artistImage": "कलाकार का चित्र",
+    "cancel": "रद्द करें", 
+    "updateEvent": "अद्यतन करें",
+    "eventDetail" : "कार्यक्रम विवरण", 
+    "comedy":"कार्यक्रम"
+}

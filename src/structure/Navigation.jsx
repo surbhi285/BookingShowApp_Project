@@ -11,6 +11,8 @@ import BookingConfirmed from "../pages/booking/bookingConfirmation/BookingConfir
 import CreateBookingPage from "../pages/booking/bookingPage/CreateBookingPage"
 import ArtistList from "../pages/artists/ArtistList"
 import BookingWrapper from "../pages/booking/BookingWrapper"
+import EventArtistWrapper from "../pages/events/eventdetail/EventArtistWrapper"
+import EventDetailPage from "../pages/events/eventdetail/EventDetailPage"
 
 
 //["Home", "Movies", "Events", "Artist", "Shows"]
@@ -31,10 +33,11 @@ export const navList = [
     { path:     "/movies",    name: "Movies",  element: <WrapperMovies/>,      isMenu: true,    isPrivate: false  },
     { path:     "/movie/:movieId",    name: "Movie Details",  element: <MovieArtistDetailWrapper/>,      isMenu: false,    isPrivate: false  },
     { path:     "/events",    name: "Events",  element: <EventWrapper/>,      isMenu: true,    isPrivate: false  },
+    { path:     "/event/:eventId",    name: "Event Details",  element: <EventArtistWrapper/>,      isMenu: false,    isPrivate: false  },  
     { path:     "/artist/:artistId",    name: "Artist",  element: <ArtistDetailPage/>,      isMenu: true,    isPrivate: false  },
     { path:     "/shows",    name: "Shows",    element: <BookingWrapper/>,      isMenu: true,    isPrivate: false  },
     { path:     "/events/booking/event/:id",    name: "Shows",    element: <BookingWrapper/>,      isMenu: false,    isPrivate: false  },
-    // { path:     "/bookingConfirmation",    name: "BookingConfirmation",    element: <BookingConfirmed/>,      isMenu: false,    isPrivate: false  },
+    { path:     "/bookingConfirmed",    name: "BookingConfirmation",    element: <BookingConfirmed/>,      isMenu: false,    isPrivate: false  },
     // { path:     "/movies/booking/movies/:id",    name: "Shows",    element: <ShowsPage/>,      isMenu: false,    isPrivate: false  },
     //{ path:     "/bookingConfirmation",    name: "BookingConfirmation",    element: <BookingConfirmed/>,      isMenu: false,    isPrivate: false  },
     { path:     "/artist/:artistId",    name: "Artist",  element: <ArtistDetailPage/>,      isMenu: false,    isPrivate: false  },

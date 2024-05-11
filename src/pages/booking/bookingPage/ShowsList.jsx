@@ -9,34 +9,27 @@ import { useParams } from "react-router-dom";
 
 const filterShows = (shows, showSearch) => {
   return shows.filter((show) => {
-    console.log("search", showSearch)
     if (
       !showSearch ||
-      ((!showSearch.language || (showSearch.language.length === 0) ||
-        showSearch.language.some((language) =>
-          show.language.includes(language)
-        )) &&
-        (!showSearch.location || (showSearch.location.length === 0) ||
-          showSearch.location.some((location) =>
-            show.venue.includes(location)
-          )))
-    )
+      (!Array.isArray(showSearch.language) || showSearch.language.length === 0 || showSearch.language.some((language) => show.language.includes(language))) &&
+      (!Array.isArray(showSearch.location) || showSearch.location.length === 0 || showSearch.location.some((location) => show.venue.includes(location)))
+    ) {
       return true;
+    }
     return false;
   });
 };
-
 const ShowsList = ({ showSearch, shows, events, showModal, payload,  initFormData}) => {
 
 
   const [filteredShow, setFilteredShow] = useState(null);
  
-  console.log("show checking",shows);
+  // console.log("show checking",shows);
 
   useEffect(() => {
     if (showSearch && shows) {
       let filteredEvents = filterShows(shows, showSearch);
-      console.log("filtered", filteredEvents);
+      // console.log("filtered", filteredEvents);
       setFilteredShow(filteredEvents);
     }
   }, [shows, showSearch]);
@@ -73,14 +66,14 @@ const ShowsList = ({ showSearch, shows, events, showModal, payload,  initFormDat
 
 const Show = ({ show, events, movies, showModal, payload, initFormData }) => {
   const { id } = useParams();
-  console.log("id",id)
+  // console.log("id",id)
   const findEvent = (categoryId) => {
     return events.find((event) => event.eventId === categoryId);
   };
   const event = findEvent(show.categoryId);
 
   // const findMovie = (categoryId) => {
-  //   return movies.find((movie) => movie.movieId === categoryId);
+  //   return movies?.find((movie) => movie.movieId === categoryId);
   // };
   // const movie = findMovie(show.categoryId);
 
@@ -89,7 +82,7 @@ const Show = ({ show, events, movies, showModal, payload, initFormData }) => {
     payload.current.data = {};
     initFormData();
   }
-  console.log(payload.current.data, "payload")
+  // console.log(payload.current.data, "payload")
 
 
   return (

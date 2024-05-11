@@ -6,32 +6,30 @@ import {
   DatePicker,
   Button,
   Space,
-  message,
-  Upload,
 } from "antd";
 import { addFunction, updateFunction } from "../../../services/events/events";
-// import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
-// import { Form, Input, Space } from 'antd';
 import { useState } from "react";
-import moment from "moment";
+import { TranslateFunction } from "../../../utils/internationalization";
+
 
 export default function CreateUpdate({
   isModalOpen,
   handleOk,
   handleCancel,
   payload,
-  form,
+  form, 
   setUpdatedCount,
-  Flex
 }) {
   const [fileList, setFileList] = useState([]);
   const onChange = ({ fileList: newFileList }) => {
     setFileList(newFileList);
   };
 
+  const labelDetail = TranslateFunction("label");
+
   const submitForm = (values) => {
-    console.log("submit")
+    // console.log("submit")
     const transformedValue = {
       ...values,
       language: [values["language"]],
@@ -40,11 +38,11 @@ export default function CreateUpdate({
     };
     
     payload.current.data = { ...payload.current.data, ...transformedValue };
-    console.log(payload, "create");
+    // console.log(payload, "create");
     if (payload.current.operation === "ADD") {
       payload.current.data.eventId = Math.random();
       addFunction(payload.current.data).then(() => {
-        console.log(payload, "surbhi");
+        // console.log(payload, "surbhi");
         setUpdatedCount((count) => count + 1);
         handleOk();
       });
@@ -59,7 +57,7 @@ export default function CreateUpdate({
   return (
     <>
       <Modal
-        title="Event Detail"
+        title={labelDetail("eventDetail")}
         open={isModalOpen}
         onClick={handleOk}
         onCancel={handleCancel}
@@ -84,7 +82,7 @@ export default function CreateUpdate({
           </Form.Item> */}
 
           <Form.Item
-            label="Event Name"
+            label={labelDetail("eventName")}
             name="eventName"
             rules={[
               { required: true, message: "Please input your EventName!" },
@@ -95,14 +93,14 @@ export default function CreateUpdate({
 
           <Form.Item
             name="eventPoster"
-            label="Event Poster URL"
+            label={labelDetail("eventPoster")}
             rules={[
               { required: true, message: "Please input your Event Poster!" },
             ]}
           >
             <Input />
           </Form.Item>
-          <Form.Item label="Language" name="language">
+          <Form.Item label={labelDetail("language")} name="language">
             <Select>
               <Select.Option value="Hindi">Hindi</Select.Option>
               <Select.Option value="English">English</Select.Option>
@@ -111,7 +109,7 @@ export default function CreateUpdate({
           </Form.Item>
 
           <Form.Item
-            label="Event Duration"
+            label={labelDetail("eventDuration")}
             name="duration"
             rules={[
               { required: true, message: "Please input your Event Duration!" },
@@ -122,7 +120,7 @@ export default function CreateUpdate({
 
           <Form.Item
             name="genres"
-            label="Event Genre"
+            label={labelDetail("eventGenre")}
             rules={[
               { required: true, message: "Please input your Event Genre!" },
             ]}
@@ -132,7 +130,7 @@ export default function CreateUpdate({
 
           <Form.Item
             name="venue"
-            label="Event Venue"
+            label={labelDetail("eventVenue")}
             rules={[
               { required: true, message: "Please input your Event Venue!" },
             ]}
@@ -142,7 +140,7 @@ export default function CreateUpdate({
 
           <Form.Item
             name="censorBoardRating"
-            label="Censor Board Rating"
+            label={labelDetail("censorBoardRating")}
             rules={[
               {
                 required: true,
@@ -153,13 +151,13 @@ export default function CreateUpdate({
             <Input />
           </Form.Item>
 
-          <Form.Item name="date" label="Date">
+          <Form.Item name="date" label={labelDetail("date")}>
             <DatePicker multiple onChange={onChange} />
           </Form.Item>
 
           <Form.Item
             name="eventTime"
-            label="Event Time"
+            label= {labelDetail("eventTime")}
             rules={[
               { required: true, message: "Please input your Event Time!" },
             ]}
@@ -169,7 +167,7 @@ export default function CreateUpdate({
 
           <Form.Item
             name="price"
-            label="Price"
+            label={labelDetail("price")}
             rules={[{ required: true, message: "Please input your Price!" }]}
           >
             <Input />
@@ -190,7 +188,7 @@ export default function CreateUpdate({
               <Form.Item
                 {...restField}
                 name={[name, 'name']}
-                label="Artist Name"
+                label={labelDetail("artistName")}
                 rules={[
                   {
                     required: true,
@@ -205,7 +203,7 @@ export default function CreateUpdate({
              <Form.Item
                 {...restField}
                 name={[name, 'image']}
-                label="Artist Image"
+                label={labelDetail("artistImage")}
                 rules={[
                   {
                     required: true,
@@ -220,7 +218,7 @@ export default function CreateUpdate({
           ))}
            <Form.Item style={{marginLeft:120}}>
             <Button type="dashed" onClick={() => add()} block icon={<PlusOutlined />} >
-              Add Artist
+            {labelDetail("addArtist")}
             </Button>
           </Form.Item>
         </>
@@ -228,7 +226,7 @@ export default function CreateUpdate({
     </Form.List>             
           <Form.Item
             name="eventImage"
-            label="Event Poster 2"
+            label={labelDetail("eventDetailPoster")}
             rules={[
               { required: true, message: "Please input your Event Poster!" },
             ]}
@@ -241,12 +239,12 @@ export default function CreateUpdate({
               onClick={handleCancel}
               style={{ marginRight: "10px" }}
             >
-              Cancel
+              {labelDetail("cancel")}
             </Button>
             <Button type="primary" htmlType="submit">
               {payload.current.operation === "ADD"
-                ? "Add Event"
-                : "Update Event"}
+                ? labelDetail("addEvent")
+                : labelDetail("updateEvent")}
             </Button>
           </Form.Item>
         </Form>
