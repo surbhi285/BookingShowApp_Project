@@ -13,8 +13,8 @@ export default function EventDetailPage({ event, back, onSelectArtist, eventId }
   const [form] = Form.useForm();
   const[eventDetail, setEventDetail] = useState(null);
 
-   const eventNumber = parseInt(eventId);
-  //  console.log(eventNumber)
+   const eventNumber = +(eventId);
+   console.log(eventNumber)
 
    useEffect(()=>{
     console.log("called")
@@ -24,7 +24,6 @@ export default function EventDetailPage({ event, back, onSelectArtist, eventId }
     })
    },[eventNumber])
 
-   console.log(eventDetail)
   console.log("event detail", eventDetail)
 
   useEffect(() => {

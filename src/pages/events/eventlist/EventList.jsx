@@ -33,6 +33,7 @@ const EventList = ({
   handleDelete, 
   onSelectEvent
 }) => {
+  console.log("eeeeeee",searchObj);
   const [eventsList, setEventsList] = useState(null);
   const [filteredEvents, setFilteredEvents] = useState(null);
   const button = TranslateFunction("label");

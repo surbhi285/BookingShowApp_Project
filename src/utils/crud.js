@@ -1,5 +1,6 @@
 let crudOperation = {   
     get: function(list){
+        // console.log(list);
       return list;
     },
 

@@ -19,6 +19,9 @@ export default function EventListPage({
     
   const queryParams = {};
   searchParams.forEach((value, key) => {
+      if(value === 'null') {
+        value = null;
+      }
       queryParams[key] = value;
   })
 
@@ -56,7 +59,7 @@ console.log('searchParams', searchParams)
           handleDelete={handleDelete}
           onSelectEvent = {handleSelectEvent}
         />
-      </Col>
-    </Row>
+        </Col>
+        </Row>
   );
 }

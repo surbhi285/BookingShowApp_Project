@@ -11,6 +11,7 @@ import { addFunction, updateFunction } from "../../../services/events/events";
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 import { useState } from "react";
 import { TranslateFunction } from "../../../utils/internationalization";
+import moment from "moment";
 
 
 export default function CreateUpdate({
@@ -101,7 +102,7 @@ export default function CreateUpdate({
             <Input />
           </Form.Item>
           <Form.Item label={labelDetail("language")} name="language">
-            <Select>
+            <Select mode="multiple">
               <Select.Option value="Hindi">Hindi</Select.Option>
               <Select.Option value="English">English</Select.Option>
               <Select.Option value="Punjabi">Punjabi</Select.Option>
@@ -125,7 +126,20 @@ export default function CreateUpdate({
               { required: true, message: "Please input your Event Genre!" },
             ]}
           >
-            <Input />
+             <Select mode="multiple">
+              <Select.Option value="Comedy">Comedy</Select.Option>
+              <Select.Option value="EDM">EDM</Select.Option>
+              <Select.Option value="Workshop">Workshop</Select.Option>
+              <Select.Option value="Sufi">Sufi</Select.Option>
+              <Select.Option value="Business">Business</Select.Option>
+              <Select.Option value="Education">Education</Select.Option>
+              <Select.Option value="Poetry">Poetry</Select.Option>
+              <Select.Option value="Jazz">Jazz</Select.Option>
+              <Select.Option value="Bollywood">Bollywood</Select.Option>
+              <Select.Option value="Indian Classical">Indian Classical</Select.Option>
+            
+            
+            </Select>
           </Form.Item>
 
           <Form.Item
@@ -162,6 +176,7 @@ export default function CreateUpdate({
               { required: true, message: "Please input your Event Time!" },
             ]}
           >
+             
             <Input />
           </Form.Item>
 
@@ -235,13 +250,12 @@ export default function CreateUpdate({
           </Form.Item>
           <Form.Item>
             <Button
-              type="primary"
               onClick={handleCancel}
-              style={{ marginRight: "10px" }}
+              style={{ marginRight: "10px", backgroundColor: "rgb(220, 53, 75)", color:"white" }}
             >
               {labelDetail("cancel")}
             </Button>
-            <Button type="primary" htmlType="submit">
+            <Button  htmlType="submit" style={{backgroundColor: "rgb(220, 53, 75)", color:"white"}}>
               {payload.current.operation === "ADD"
                 ? labelDetail("addEvent")
                 : labelDetail("updateEvent")}

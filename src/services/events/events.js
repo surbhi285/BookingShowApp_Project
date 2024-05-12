@@ -6,7 +6,7 @@ let eventsDetail = Events;
 export function getFunction(){
     return new Promise((resolve)=>{
         eventsDetail = crudOperation.get(eventsDetail);
-        // console.log("crud", eventsDetail)
+        console.log("crud", eventsDetail)
         resolve(eventsDetail);
     })
 }
@@ -15,7 +15,7 @@ export function getFunction(){
 export function getDetailFunction(eventId, pk){
     return new Promise((resolve)=>{
         let eventDetail = crudOperation.getDetail(eventsDetail, eventId, pk);
-        // console.log(eventDetail, "crud");
+        console.log(eventDetail, "crud");
         resolve(eventDetail);
     })
 }

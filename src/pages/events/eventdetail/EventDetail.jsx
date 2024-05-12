@@ -154,6 +154,8 @@ console.log(review, "review")
                 </Card>
                 </>
               ))}
+              {review?.length > 0 && (
+                <>
       <Typography.Title style={{ marginLeft: "10%" }}>
         Top reviews
       </Typography.Title>
@@ -188,6 +190,8 @@ console.log(review, "review")
           </Card>
         ))}
       </Flex>
+      </>
+              )}
     </>
   );
 }

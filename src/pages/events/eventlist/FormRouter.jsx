@@ -49,22 +49,17 @@ export default function FormRouter({ setEvent, next }) {
   });
 
   const initFormData = () => {
-    // console.log("check1", payload.current.data);
-    // payload.current.data.eventId
-    //   ? form.setFieldsValue(payload.current.data)
-    //   : form.resetFields();
     if(payload.current.data.eventId){
       payload.current.data = {
         ...payload.current.data, 
         date: payload.current.data.date.map(date => moment(date, "DD MMM YYYY")),
       }
-      // console.log("artist", payload)
       form.setFieldsValue(payload.current.data)
     }else{
       form.resetFields();
     }
   };
-  // console.log(payload.current.data);
+
 
   return (
     <>

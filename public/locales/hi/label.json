@@ -19,5 +19,7 @@
     "eventDetail" : "कार्यक्रम विवरण", 
     "comedy":"कार्यक्रम",
     "eventsInDelhi-NCR": " दिल्ली-एनसीआर में कार्यक्रम", 
-    "filters":"फिल्टर"
+    "filters":"फिल्टर",
+    "languages": "भाषा", 
+    "location": "स्थान"
 }
