@@ -20,6 +20,27 @@ export default function BookingMultiForm({
   next,
 }) {
   const [currentUi, setCurrentUi] = useState(UI.Form1);
+  const movieEventName = [
+    "Rajkumari by Nayab Midha - A Poetry Special",
+    "Kisi Ko Batana Mat By Anubhav Singh Bassi",
+    "Jo Bolta Hai Wohi Hota Hai Ft. Harsh Gujral",
+    "World Jazz Festival-Delhi",
+    "BMW Joytown 2024",
+    "Main Shayar Toh Nahin ft Manhar Seth",
+    "PokerBaazi Presents Sagar Wali Qawwali",
+    "Lemons & Peaches ft. Gursimran Khamba",
+    "Qawwali by Nizami Bandhu",
+    "Youth Speak Forum 2024",
+    "Pottery Painting",
+    "The Late Night Comedy Show",
+    "Shaitan",
+    "Kung Fu Panda 4",
+    "Godzilla x Kong: The New Empire",
+    "Article 370",
+    "Yodha",
+    "Madgaon Express",
+    "Bade Miyan Chote Miyan",
+  ];
 
   const navigate = useNavigate();
 
@@ -36,7 +57,8 @@ export default function BookingMultiForm({
   const submitForm = (values) => {
     const transformedValue = {
       ...values,
-      date: values["date"]?.map((date) => date.format("DD MMM YYYY")),
+      // date: values["date"]?.map((date) => date.format("DD MMM YYYY")),
+      date: values["date"].format("DD MMM YYYY")
     };
     payload.current.data = { ...payload.current.data, ...transformedValue };
     if (payload.current.operation === "ADD") {
@@ -122,18 +144,30 @@ export default function BookingMultiForm({
               { required: true, message: "Please input your Movie name!" },
             ]}
           >
-            <Input />
+            <Select>
+            {movieEventName.map((list, index)=>(
+              <Select.Option key={index} value={list}>
+              {list}
+            </Select.Option>
+            ))}
+            </Select>
           </Form.Item>
           <Form.Item
             label="Tickets"
             name="tickets"
             rules={[{ required: true, message: "Please input your Tickets!" }]}
           >
-            <Input />
+           <Select placeholder="Select Number of Tickets">
+              {[...Array(20).keys()].map((num) => (
+                <Select.Option key={num + 1} value={num + 1}>
+                  {num + 1}
+                </Select.Option>
+              ))}
+            </Select>
           </Form.Item>
 
           <Form.Item name="date" label="DatePicker">
-            <DatePicker multiple />
+            <DatePicker  />
           </Form.Item>
 
           <Form.Item
@@ -243,7 +277,13 @@ export default function BookingMultiForm({
               { required: true, message: "Please input your Movie name!" },
             ]}
           >
-            <Input />
+            <Select>
+            {movieEventName.map((list, index)=>(
+              <Select.Option key={index} value={list}>
+              {list}
+            </Select.Option>
+            ))}
+            </Select>
           </Form.Item>
 
           <Form.Item
@@ -251,11 +291,17 @@ export default function BookingMultiForm({
             name="tickets"
             rules={[{ required: true, message: "Please input your Tickets!" }]}
           >
-            <Input />
+             <Select placeholder="Select Number of Tickets">
+              {[...Array(20).keys()].map((num) => (
+                <Select.Option key={num + 1} value={num + 1}>
+                  {num + 1}
+                </Select.Option>
+              ))}
+            </Select>
           </Form.Item>
 
           <Form.Item name="date" label="DatePicker">
-            <DatePicker multiple />
+            <DatePicker />
           </Form.Item>
 
           <Form.Item
